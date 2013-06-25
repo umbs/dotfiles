@@ -1,0 +1,26 @@
+[user]
+	name = umbs
+	email = umbs_sairam@yahoo.com
+[core]
+	preloadindex = true 
+	autocrlf = input 
+	safecrlf = true 
+	eol = lf 
+
+[color] 
+	ui = auto 
+
+[alias] 
+	br = branch -avv 
+	ck = checkout 
+	st = status -sb 
+	cm = commit 
+	df = diff 
+	ds = describe 
+	l  = log --oneline --decorate 
+	lg = log --oneline --decorate --graph 
+	lf = log --oneline --decorate --follow -- 
+	alias = config --get-regex alias 
+
+[credential]
+	helper = osxkeychain
