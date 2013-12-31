@@ -1,0 +1,23 @@
+# Navigation 
+# l = long list; t = time modified; h = human readable (1K, 234M); 
+# G = don't list group; r = reverse sort; 
+# p = append '/' indicator to directories 
+# a = all including . files 
+# Useful but not included options: 
+# S = sort by file size; g = don't list owner 
+# s = size in Kb instead of blocks 
+# alias ll="ls -ltrhGp"
+alias ll="ls -lhGp"
+
+# alias to_eric="scp $1 esarupa@eussjlxxen201.rnd.ericsson.se://home/esarupa/$1" 
+
+alias pkt="cd /Users/esarupa/trees/swfeature_int/pkt/"
+alias bsd="cd /Users/esarupa/trees/swfeature_int/pkt/sw/se/xc/bsd/"
+alias src="cd /Users/esarupa/trees/swfeature_int/pkt/sw/se/xc/bsd/config/vlan/src"
+
+alias rsync="rsync -rave ssh /Users/esarupa/trees/swfeature_int/ esarupa@147.117.60.132:/project/swbuild13/esarupa/rsync_sfi" 
+ 
+function to_eric() 
+{
+    scp ${1} esarupa@eussjlxxen202.rnd.ericsson.se://home/esarupa/ 
+} 
