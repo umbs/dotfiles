@@ -5,22 +5,31 @@
 	preloadindex = true 
 	autocrlf = input 
 	safecrlf = true 
-	eol = lf 
+	eol = lf
+	ignorecase = false
 
+	editor = vim
+	whitespace = nowarn
 [color] 
 	ui = auto 
 
 [alias] 
-	br = branch -avv 
+	br = branch 
 	ck = checkout 
-	st = status -sb 
+	st = status 
 	cm = commit 
 	df = diff 
+	dt = difftool 
 	ds = describe 
 	l  = log --oneline --decorate 
 	lg = log --oneline --decorate --graph 
 	lf = log --oneline --decorate --follow -- 
-	alias = config --get-regex alias 
+	alias = config --get-regex alias
+	fp = format-patch 
 
 [credential]
 	helper = osxkeychain
+[diff]
+	tool = vimdiff
+[difftool "vimdiff"]
+	path = /usr/bin/vimdiff

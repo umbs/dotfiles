@@ -29,6 +29,10 @@ set mouse=a          " Allow mouse operations. Currently not working.
 set tabstop=8        " tab is 4 spaces long 
 set expandtab        " replace tabs with 4 spaces 
 
+set autowrite        " Very useful in following context: Modify file,
+                     " don't save yet, switch to another window and
+                     " compile code. File is saved with this setting. 
+
 "autocmd vimenter * NERDTree    " Load NERDTree whenever Vim starts 
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim " load CTRL-P plugin when Vim starts 
