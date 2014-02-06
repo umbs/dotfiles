@@ -1,14 +1,3 @@
-# Navigation 
-# l = long list; t = time modified; h = human readable (1K, 234M); 
-# G = don't list group; r = reverse sort; 
-# p = append '/' indicator to directories 
-# a = all including . files 
-# Useful but not included options: 
-# S = sort by file size; g = don't list owner 
-# s = size in Kb instead of blocks 
-# alias ll="ls -ltrhGp"
-alias ll="ls -lhGp"
-
 # tmux sessions 
 function tmux-profile
 {
