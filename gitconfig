@@ -1,35 +1,46 @@
 [user]
-	name = umbs
-	email = umbs_sairam@yahoo.com
-[core]
-	preloadindex = true 
-	autocrlf = input 
-	safecrlf = true 
-	eol = lf
-	ignorecase = false
+        name = Sarma Upadhyayula 
+        email = sarma.upadhyayula@ericsson.com
 
+[core]
+	preloadindex = true
+	autocrlf = input
+	safecrlf = warn 
+	eol = lf
+	
 	editor = vim
+	browswer = google-chrome 
 	whitespace = nowarn
 [color] 
-	ui = auto 
+	ui = auto
+
+[color "branch"] 
+	current = red bold 
+	local = green bold 
+	remote = cyan bold 
 
 [alias] 
-	br = branch 
-	ck = checkout 
-	st = status 
-	cm = commit 
-	df = diff 
-	dt = difftool 
-	ds = describe 
-	l  = log --oneline --decorate 
-	lg = log --oneline --decorate --graph 
-	lf = log --oneline --decorate --follow -- 
-	alias = config --get-regex alias
-	fp = format-patch 
+        br = branch 
+        ck = checkout 
+        st = status -uno -u 
+        cm = commit 
+        df = diff 
+        ds = describe
+        
+        lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+        lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+        lg = !"git lg1"
 
-[credential]
-	helper = osxkeychain
+#        l  = log --oneline --decorate 
+#        lg = log --oneline --decorate --graph  
+#        lf = log --oneline --decorate --follow -- 
+        alias = config --get-regex alias 
+
+#[diff]
+#        tool = tkdiff 
 [diff]
-	tool = vimdiff
-[difftool "vimdiff"]
-	path = /usr/bin/vimdiff
+	algorithm = patience
+[http]
+	sslverify = false
+[remote "gerrit"]
+	url = ssh://esarupa@gerrit.ericsson.se:29418/ipos/routing
