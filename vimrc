@@ -49,6 +49,9 @@ set cscopetag
 autocmd BufEnter * silent! lcd %:p:h
 " http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
 
+" ctrlp plugin
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
 " insert date and time stamp
 " strftime() is the key function. Do man 3 strftime for details on print format.
 "
@@ -81,3 +84,13 @@ inoremap <F5> <C-R>=strftime("[%a %d, %H:%M]")<CR>
 " The number (15) indicates number of lines to display. Increase/decrease as
 " needed.
 " let g:tagbar_vertical=15
+nnoremap <silent> <F9> :TagbarToggle<CR>
+
+" 'Esc' switches to normal mode.
+" ':TagbarToggle' toggles current Tagbar state.
+" 'A' switches to insert mode and cursor at end of current line.
+inoremap <silent> <F9> <Esc>:TagbarToggle<CR>A
+
+" NERDTree plugin key maps
+nnoremap <F8> :NERDTreeToggle<CR>
+inoremap <F8> <Esc>:NERDTreeToggle<CR>A

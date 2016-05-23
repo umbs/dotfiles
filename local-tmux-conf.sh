@@ -9,10 +9,10 @@ tmux new-window -t local:1 -n 'Journal'
 tmux send-keys "vi ~/Dropbox/Journal.txt" C-m
 
 tmux new-window -t local:2 -n 'scratch'
-tmux send-keys "vi ~/scratch.txt" C-m
+tmux send-keys "vi ~/Dropbox/scratch.txt" C-m
 
-tmux new-window -t local:3 -n 'CCNA'
-tmux send-keys "vi ~/github/Notes/CCNA.txt" C-m
+tmux new-window -t local:3 -n 'Protocols'
+tmux send-keys "vi ~/Notes/Protocols.txt" C-m
 
 tmux new-window -t local:4 -n 'misc'
 
