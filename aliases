@@ -7,7 +7,8 @@
 # S = sort by file size; g = don't list owner 
 # s = size in Kb instead of blocks 
 # alias ll="ls -ltrhGp"
-alias ll="ls -lhGp"
+alias ll="ls -lhGp --color"
+alias ls='ls -hF --color'
 
 # tmux sessions 
 function tmux-profile
@@ -26,32 +27,22 @@ function tmux-profile
         tmux attach-session -t profile
 }
 
-function tmux-src
-{
-        SRC="$HOME/trees/swfeature_int"
-        cd $SRC
+# Environment Settings
+export PATH="/usr/bin/:$PATH"
 
-        tmux start-server
-        tmux new-session -d -s src -n parser
-        tmux new-window -t src:1 -n cli
-        tmux new-window -t src:2 -n mgr  
-        tmux new-window -t src:3 -n daemon 
-        tmux new-window -t src:4 -n fabl  
-        tmux new-window -t src:5 -n misc 
+alias trail_ws="sed --in-place 's/[[:space:]]\+$//'"
+alias git_clean_ws="git status --short | awk '{print $2}' | xargs sed --in-place 's/[[:space:]]\+$//'"
 
-        tmux attach-session -t src
-}
-
-function tmux-personal
-{
-        SRC="$HOME/github"
-        cd $SRC
-
-        tmux start-server
-        tmux new-session -d -s personal -n code 
-        tmux new-window -t personal:1 -n make 
-        tmux new-window -t personal:2 -n linux 
-        tmux new-window -t personal:3 -n glibc 
-
-        tmux attach-session -t personal
+# Colorize man pages
+# http://boredzo.org/blog/archives/2016-08-15/colorized-man-pages-understood-and-customized
+man() {
+    env \
+        LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+        LESS_TERMCAP_md=$(printf "\e[1;31m") \
+        LESS_TERMCAP_me=$(printf "\e[0m") \
+        LESS_TERMCAP_se=$(printf "\e[0m") \
+        LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+        LESS_TERMCAP_ue=$(printf "\e[0m") \
+        LESS_TERMCAP_us=$(printf "\e[1;32m") \
+            man "$@"
 }

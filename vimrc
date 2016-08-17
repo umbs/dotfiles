@@ -1,22 +1,21 @@
 execute pathogen#infect()
-execute pathogen#helptags()
-syntax on       " syntax highlighting ON (default is OFF)
-syntax enable
+syntax on
 filetype plugin indent on
 
 " Vim settings
-set incsearch	" incremental search
-set hlsearch  	" highlight search results
-set number 	" set line numbers
-set ruler 	" (row, colum, % of document) are displayed at right bottom
-set timeoutlen=2000 	" 2 seconds instead of 1, for operations involving
-			" multiple keys such as tmux and screen.
-set textwidth=80 	" 80 column width
-set wildmenu	" when 'help patt' + tab, gives options in status line
+set incsearch   " incremental search
+set hlsearch    " highlight search results
+set number      " set line numbers
+set ruler       " (row, colum, % of document) are displayed at right bottom
+set timeoutlen=2000     " 2 seconds instead of 1, for operations involving
+                        " multiple keys such as tmux and screen.
+
+set textwidth=76        " 76 column width
+set wildmenu    " when 'help patt' + tab, gives options in status line
 set shiftwidth=4
-set tabstop=4 	" tab is 4 spaces long
-set expandtab	" tabs are expanded to spaces
-set smarttab	"
+set tabstop=4   " tab is 4 spaces long
+set expandtab   " tabs are expanded to spaces
+set smarttab    "
 set ignorecase  " ignore case during search
 
 set noswapfile  " Whenever a file is open, VIM creates a .swp or similar files,
@@ -25,14 +24,21 @@ set noswapfile  " Whenever a file is open, VIM creates a .swp or similar files,
                 " Bad because, if the file is inside Dropbox, the .filename.swp
                 " is *somehow* always current or in modified state. So, Dropbox
                 " continuously tries to sync that file which hogs up CPU (from
-                " one experience). Alternately, the location of swap file can
+                " one experience). Alternately, the location of swap files can
                 " be changed to outside Dropbox directory.
+
+syntax on       " syntax highlighting ON (default is OFF)
 
 set backspace=indent,eol,start  " treat backspace like it behaves in all other
                                 " programs:http://vi.stackexchange.com/a/2163/2796
 
-" TODO: cscope settings. Supposed to open cscope results in quickfix window, but
-" I am having difficulty.
+set showmatch   " show  matching [] {} ()
+
+" let python_highlight_all = 1    " enable all python syntax highlighting features
+
+" TODO: cscope settings, search results are displayed in quickfix window instead of a
+" new window that *could* occupy full window. I am having difficulty getting
+" this to work.
 " set cscopequickfix=s-,c-,d-,i-,t-,e-
 
 "If 'cscopetag' is set, the commands ":tag" and CTRL-] as well as "vim -t"
@@ -43,14 +49,11 @@ set backspace=indent,eol,start  " treat backspace like it behaves in all other
 "        :set nocst
 set cscopetag
 
-" set autochdir   " change current working directory to the file that's open.
-" Unfortunately, when this is set, some plugins do not work correctly. Instead,
-" use below command.
-autocmd BufEnter * silent! lcd %:p:h
-" http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
-
-" ctrlp plugin
-set runtimepath^=~/.vim/bundle/ctrlp.vim
+" Specific to Tagbar plugin.
+" This setting opens Tagbar window in bottom of page. Default is to the right.
+" The number (15) indicates number of lines to display. Increase/decrease as
+" needed.
+" let g:tagbar_vertical=15
 
 " insert date and time stamp
 " strftime() is the key function. Do man 3 strftime for details on print format.
@@ -79,18 +82,22 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 nnoremap <F5> "=strftime("[%a %d, %H:%M]")<CR>P
 inoremap <F5> <C-R>=strftime("[%a %d, %H:%M]")<CR>
 
+" NERDTree key maps
+nnoremap <F8> :NERDTreeToggle<CR>
+inoremap <F8> <Esc>:NERDTreeToggle<CR>A
+
 " Specific to Tagbar plugin.
 " This setting opens Tagbar window in bottom of page. Default is to the right.
 " The number (15) indicates number of lines to display. Increase/decrease as
 " needed.
 " let g:tagbar_vertical=15
 nnoremap <silent> <F9> :TagbarToggle<CR>
-
+"
 " 'Esc' switches to normal mode.
 " ':TagbarToggle' toggles current Tagbar state.
-" 'A' switches to insert mode and cursor at end of current line.
+" 'A' switches back to insert mode and cursor at end of current line.
 inoremap <silent> <F9> <Esc>:TagbarToggle<CR>A
 
-" NERDTree plugin key maps
-nnoremap <F8> :NERDTreeToggle<CR>
-inoremap <F8> <Esc>:NERDTreeToggle<CR>A
+" show 'buffers' to list recently opened files.
+nnoremap <F10> :buffers<CR>
+inoremap <F10> <Esc>:buffers<CR>A
