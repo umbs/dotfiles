@@ -1,6 +1,5 @@
 [user]
         name = Sarma Upadhyayula 
-        email = sarma.upadhyayula@ericsson.com
 
 [core]
 	preloadindex = true
@@ -43,11 +42,5 @@
         rso = remote show origin
         alias = config --get-regex alias 
 
-#[diff]
-#        tool = tkdiff 
 [diff]
 	algorithm = patience
-[http]
-	sslverify = false
-[remote "gerrit"]
-	url = ssh://esarupa@gerrit.ericsson.se:29418/ipos/routing
