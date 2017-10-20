@@ -1,3 +1,10 @@
+" Vim plugins list that I use
+" cscope_maps.vim
+" NERDTree
+" Tagbar
+" Syntastic
+" java-complete2
+
 execute pathogen#infect()
 execute pathogen#helptags()
 syntax on       " syntax highlighting ON (default is OFF)
