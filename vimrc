@@ -25,10 +25,6 @@ set tabstop=4 	" tab is 4 spaces long
 set expandtab	" tabs are expanded to spaces
 set smarttab	"
 set ignorecase  " ignore case during search
-set mouse+=a    " When copying text to clipboard using mouse, this option will
-                " not let line numbers be copied. Only the text will be copied.
-
-
 
 set noswapfile  " Whenever a file is open, VIM creates a .swp or similar files,
                 " which prevents/warns other's from opening/modifying same file
@@ -39,12 +35,10 @@ set noswapfile  " Whenever a file is open, VIM creates a .swp or similar files,
                 " one experience). Alternately, the location of swap file can
                 " be changed to outside Dropbox directory.
 
-set nobackup       " no backup files
-set nowritebackup  " only in case you don't want a backup file while editing
-set noundofile     " Vim 7.3 creates undo files (.un~). This disables it.
-
 set backspace=indent,eol,start  " treat backspace like it behaves in all other
                                 " programs:http://vi.stackexchange.com/a/2163/2796
+
+highlight Comment ctermfg=yellow " On a terminal supporting 16 colors, comments are shown in green
 
 " TODO: cscope settings. Supposed to open cscope results in quickfix window, but
 " I am having difficulty.

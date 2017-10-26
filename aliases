@@ -1,16 +1,16 @@
-# Navigation 
-# l = long list; t = time modified; h = human readable (1K, 234M); 
-# G = don't list group; r = reverse sort; 
-# p = append '/' indicator to directories 
-# a = all including . files 
-# Useful but not included options: 
-# S = sort by file size; g = don't list owner 
-# s = size in Kb instead of blocks 
+# Navigation
+# l = long list; t = time modified; h = human readable (1K, 234M);
+# G = don't list group; r = reverse sort;
+# p = append '/' indicator to directories
+# a = all including . files
+# Useful but not included options:
+# S = sort by file size; g = don't list owner
+# s = size in Kb instead of blocks
 # alias ll="ls -ltrhGp"
 alias ll="ls -lhGp --color"
 alias ls='ls -hF --color'
 
-# tmux sessions 
+# tmux sessions
 function tmux-profile
 {
         PROFILE="$HOME/trees/profile"
@@ -19,10 +19,10 @@ function tmux-profile
         tmux start-server
         tmux new-session -d -s profile -n parser
         tmux new-window -t profile:1 -n cli
-        tmux new-window -t profile:2 -n mgr  
-        tmux new-window -t profile:3 -n daemon 
-        tmux new-window -t profile:4 -n fabl  
-        tmux new-window -t profile:5 -n misc 
+        tmux new-window -t profile:2 -n mgr
+        tmux new-window -t profile:3 -n daemon
+        tmux new-window -t profile:4 -n fabl
+        tmux new-window -t profile:5 -n misc
 
         tmux attach-session -t profile
 }
