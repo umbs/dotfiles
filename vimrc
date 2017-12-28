@@ -26,6 +26,18 @@ set expandtab	" tabs are expanded to spaces
 set smarttab	"
 set ignorecase  " ignore case during search
 
+set nobackup
+set nowritebackup
+" Where 'nowritebackup' changes the default "save" behavior of Vim, which is:
+"   write buffer to new file
+"   delete the original file
+"   rename the new file
+" and makes Vim write the buffer to the original file (resulting in the risk of
+" destroying it in case of an I/O error). But you prevent "jumping files" on the
+" Windows desktop with it, which is the primary reason for me to have
+" nowritebackup in place.
+" Reference: https://stackoverflow.com/a/607475/630866
+
 set noswapfile  " Whenever a file is open, VIM creates a .swp or similar files,
                 " which prevents/warns other's from opening/modifying same file
                 " at same time. This is good and bad. Good, for obvious reasons.
