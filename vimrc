@@ -1,15 +1,9 @@
-" Vim plugins list that I use
-" cscope_maps.vim
-" NERDTree
-" Tagbar
-" Syntastic
-" java-complete2
-
-execute pathogen#infect()
-execute pathogen#helptags()
 syntax on       " syntax highlighting ON (default is OFF)
 syntax enable
-filetype plugin indent on
+
+" Vundle recommendation
+set nocompatible " be iMproved, required for Vundle
+filetype plugin indent on " required for Vundle
 
 " Vim settings
 set incsearch	" incremental search
@@ -64,14 +58,8 @@ highlight Comment ctermfg=yellow " On a terminal supporting 16 colors, comments 
 "        :set nocst
 set cscopetag
 
-" set autochdir   " change current working directory to the file that's open.
-" Unfortunately, when this is set, some plugins do not work correctly. Instead,
-" use below command.
-autocmd BufEnter * silent! lcd %:p:h
-" http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
-
 " ctrlp plugin
-set runtimepath^=~/.vim/bundle/ctrlp.vim
+" set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " insert date and time stamp
 " strftime() is the key function. Do man 3 strftime for details on print format.
@@ -120,12 +108,38 @@ inoremap <F8> <Esc>:NERDTreeToggle<CR>A
 nnoremap <F10> :buffers<CR>
 inoremap <F10> <Esc>:buffers<CR>A
 
-" Syntastic settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" Everything below is copied from VundleVim website
+" https://github.com/VundleVim/Vundle.vim
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+Plugin 'tpope/vim-fugitive'
+Plugin 'JCLiang/vim-cscope-utils'
+Plugin 'scrooloose/nerdtree'
+Plugin 'majutsushi/tagbar'
+Plugin 'kien/ctrlp.vim'
+Plugin 'chazy/cscope_maps'
+Plugin 'vim-scripts/autoload_cscope.vim'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line

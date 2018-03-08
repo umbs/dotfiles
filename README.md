@@ -8,7 +8,7 @@ Plugins used for VIM
 MUST HAVES:
 ---
 pathogen.vim
-Vim plugin manager
+Vim plugin manager. I think Vundle is better option. Still thinking.
 https://github.com/tpope/vim-pathogen
 
 vim-cscope-util
