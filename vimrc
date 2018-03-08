@@ -1,9 +1,9 @@
-syntax on       " syntax highlighting ON (default is OFF)
-syntax enable
-
 " Vundle recommendation
 set nocompatible " be iMproved, required for Vundle
-filetype plugin indent on " required for Vundle
+filetype plugin indent off " required for Vundle
+
+syntax on       " syntax highlighting ON (default is OFF)
+syntax enable
 
 " Vim settings
 set incsearch	" incremental search
@@ -61,28 +61,6 @@ set cscopetag
 " ctrlp plugin
 " set runtimepath^=~/.vim/bundle/ctrlp.vim
 
-" insert date and time stamp
-" strftime() is the key function. Do man 3 strftime for details on print format.
-"
-" Format String              Example output
-" -------------              --------------
-"  %c                         Thu 27 Sep 2007 07:37:42 AM EDT (depends on
-"                             locale)
-"  %a %d %b %Y                Thu 27 Sep 2007
-"  %b %d, %Y                  Sep 27, 2007
-"  %d/%m/%y %H:%M:%S          27/09/07 07:36:32
-"  %H:%M:%S                   07:36:44
-"  %T                         07:38:09
-"  %m/%d/%y                   09/27/07
-"  %y%m%d                     070927
-"  %x %X (%Z)                 09/27/2007 08:00:59 AM (EDT)
-"
-"  RFC822 format:
-"  %a, %d %b %Y %H:%M:%S %z   Wed, 29 Aug 2007 02:37:15 -0400
-"
-"  ISO8601/W3C format (http://www.w3.org/TR/NOTE-datetime):
-"  %FT%T%z                    2007-08-29T02:37:13-0400
-"
 "  For more:
 "  http://vim.wikia.com/wiki/Insert_current_date_or_time
 nnoremap <F5> "=strftime("[%a %d, %H:%M]")<CR>P
@@ -122,24 +100,17 @@ Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
-Plugin 'JCLiang/vim-cscope-utils'
+" Some problem with this plugin, python and cscope
+" Plugin 'JCLiang/vim-cscope-utils'
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
 Plugin 'kien/ctrlp.vim'
 Plugin 'chazy/cscope_maps'
 Plugin 'vim-scripts/autoload_cscope.vim'
+Plugin 'w0rp/ale'
+" YCMD is shutting down. Need to figure this out.
+" Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
