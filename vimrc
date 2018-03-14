@@ -58,9 +58,6 @@ highlight Comment ctermfg=yellow " On a terminal supporting 16 colors, comments 
 "        :set nocst
 set cscopetag
 
-" ctrlp plugin
-" set runtimepath^=~/.vim/bundle/ctrlp.vim
-
 "  For more:
 "  http://vim.wikia.com/wiki/Insert_current_date_or_time
 nnoremap <F5> "=strftime("[%a %d, %H:%M]")<CR>P
@@ -107,7 +104,10 @@ Plugin 'majutsushi/tagbar'
 Plugin 'kien/ctrlp.vim'
 Plugin 'chazy/cscope_maps'
 Plugin 'vim-scripts/autoload_cscope.vim'
-Plugin 'w0rp/ale'
+" Lint plugin. Make it work, later.
+" Plugin 'w0rp/ale'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'Shougo/neocomplete.vim'
 " YCMD is shutting down. Need to figure this out.
 " Plugin 'Valloric/YouCompleteMe'
 
