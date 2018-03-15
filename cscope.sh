@@ -1,6 +1,7 @@
 #!/bin/bash
 echo "====>Remove old cscope files"
 rm -f cscope*
+rm -f tags
 
 echo "====>Build cscope.files"
 # If directories needs to be excluded, add following command
@@ -9,3 +10,6 @@ find -L $PWD -name '*.c' -o -name '*.h' -o -name '*.cpp' -o -name '*.py' > cscop
 
 echo "====>Build cscope database"
 cscope -b -q -R
+
+echo "====>Build ctags"
+ctags -R .

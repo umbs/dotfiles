@@ -2,23 +2,32 @@
 set nocompatible " be iMproved, required for Vundle
 filetype plugin indent off " required for Vundle
 
+
+" ===================================================================
+"                   Vanila Vim settings
+" ===================================================================
+
 syntax on       " syntax highlighting ON (default is OFF)
 syntax enable
 
-" Vim settings
 set incsearch	" incremental search
 set hlsearch  	" highlight search results
-set number 	" set line numbers
-set ruler 	" (row, colum, % of document) are displayed at right bottom
+set ignorecase  " ignore case during search
+
+set number 	    " set line numbers
+set ruler 	    " (row, colum, % of document) are displayed at right bottom
 set timeoutlen=2000 	" 2 seconds instead of 1, for operations involving
-			" multiple keys such as tmux and screen.
+			    " multiple keys such as tmux and screen.
 set textwidth=80 	" 80 column width
 set wildmenu	" when 'help patt' + tab, gives options in status line
+set path+=**    " enables fuzzy file search
+                " set wildignore+=**/directory/** should ignore files in a
+                " certain directory
+
 set shiftwidth=4
 set tabstop=4 	" tab is 4 spaces long
 set expandtab	" tabs are expanded to spaces
 set smarttab	"
-set ignorecase  " ignore case during search
 
 set nobackup
 set nowritebackup
@@ -45,10 +54,6 @@ set backspace=indent,eol,start  " treat backspace like it behaves in all other
                                 " programs:http://vi.stackexchange.com/a/2163/2796
 
 highlight Comment ctermfg=yellow " On a terminal supporting 16 colors, comments are shown in green
-
-" TODO: cscope settings. Supposed to open cscope results in quickfix window, but
-" I am having difficulty.
-" set cscopequickfix=s-,c-,d-,i-,t-,e-
 
 "If 'cscopetag' is set, the commands ":tag" and CTRL-] as well as "vim -t"
 "will always use :cstag instead of the default :tag behavior.  Effectively,
@@ -82,6 +87,11 @@ inoremap <F8> <Esc>:NERDTreeToggle<CR>A
 " show 'buffers' to list recently opened files.
 nnoremap <F10> :buffers<CR>
 inoremap <F10> <Esc>:buffers<CR>A
+
+
+" ===================================================================
+"               Vundle Vim recommended settings
+" ===================================================================
 
 " Everything below is copied from VundleVim website
 " https://github.com/VundleVim/Vundle.vim
