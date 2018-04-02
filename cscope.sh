@@ -12,4 +12,5 @@ echo "====>Build cscope database"
 cscope -b -q -R
 
 echo "====>Build ctags"
-ctags -R .
+# --extra=+f allows python libraries in tags file, source StackOverflow
+ctags -R --extra=+f .
