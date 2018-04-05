@@ -13,4 +13,4 @@ cscope -b -q -R
 
 echo "====>Build ctags"
 # --extra=+f allows python libraries in tags file, source StackOverflow
-ctags -R --extra=+f .
+ctags -R --extra=+f --exclude="*.js" .
