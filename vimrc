@@ -29,6 +29,10 @@ set tabstop=4 	" tab is 4 spaces long
 set expandtab	" tabs are expanded to spaces
 set smarttab	"
 
+set noundofile  " creates a file with <file-name>.ext.un~ This creates
+                " persistent undo database. So, even upon closing and opening a
+                " file, the undo feature is present
+
 set nobackup
 set nowritebackup
 " Where 'nowritebackup' changes the default "save" behavior of Vim, which is:
