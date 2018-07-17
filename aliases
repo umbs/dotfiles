@@ -1,0 +1,2 @@
+sdi sudo docker images
+sdrmi sudo docker rmi
