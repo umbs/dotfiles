@@ -10,15 +10,6 @@
 alias ll="ls -lhGp --color"
 alias ls='ls -hF --color'
 alias p='pwd'
-alias vi='~/vim-dontdelete/src/vim'
-alias vim='~/vim-dontdelete/src/vim'
-
-alias sdi='sudo docker images'
-alias sdp='sudo docker push'
-alias sdt='sudo docker tag'
-alias sdb='sudo docker build -t sdwan_agg .'
-alias sdps='sudo docker ps'
-alias sdrmi='sudo docker rmi'
 
 alias trail_ws="sed --in-place 's/[[:space:]]\+$//'"
 alias git_clean_ws="git status --short | awk '{print $2}' | xargs sed --in-place 's/[[:space:]]\+$//'"
