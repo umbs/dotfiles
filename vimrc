@@ -120,10 +120,15 @@ Plugin 'chazy/cscope_maps'
 Plugin 'vim-scripts/autoload_cscope.vim'
 " Lint plugin. Make it work, later.
 " Plugin 'w0rp/ale'
-Plugin 'davidhalter/jedi-vim'
+" Plugin 'davidhalter/jedi-vim'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'Shougo/neocomplete.vim'
 " YCMD is shutting down. Need to figure this out.
 " Plugin 'Valloric/YouCompleteMe'
+Plugin 'flazz/vim-colorschemes'
+" Plugin 'powerline/powerline'
+Plugin 'vim-scripts/bash-support'
+Plugin 'vim-airline/vim-airline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
