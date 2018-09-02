@@ -7,14 +7,15 @@ Kindle Reader
 
 
 ==========================
-IDEs
+IDEs/EDITORs
 ==========================
-PyCharm CE
-VSCode
+Vim (>=8.0. Get dotfiles/vimrc from Github)
+PyCharm CE (optional)
+VSCode (optional)
 
 
 ==========================
-MAC OSX TERMINAL
+MAC OSX
 ==========================
 Homebrew
 
