@@ -24,6 +24,9 @@ cp dotfiles/vimrc ~/.vimrc
 cp dotfiles/gitconfig ~/.gitconfig
 cp dotfiles/bashrc ~/.bashrc
 
+# Vim plugin manager (Vundle) installation
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
 # Python comes pre-installed with Mac OS. Install pip and others
 sudo easy_install pip
 sudo easy_install pudb
