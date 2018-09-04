@@ -7,8 +7,8 @@
 # S = sort by file size; g = don't list owner
 # s = size in Kb instead of blocks
 # alias ll="ls -ltrhGp"
-alias ll="ls -lhGp --color"
-alias ls='ls -hF --color'
+alias ll="ls -lhGp -color"
+alias ls='ls -hFG -color'
 alias p='pwd'
 
 alias trail_ws="sed --in-place 's/[[:space:]]\+$//'"
