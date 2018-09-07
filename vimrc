@@ -20,7 +20,7 @@ set timeoutlen=2000 	" 2 seconds instead of 1, for operations involving
 			    " multiple keys such as tmux and screen.
 set textwidth=80 	" 80 column width
 set wildmenu	" when 'help patt' + tab, gives options in status line
-set path+=**    " enables fuzzy file search
+set path+=**    " enables fuzzy file search using :find command
                 " set wildignore+=**/directory/** should ignore files in a
                 " certain directory
 
@@ -28,10 +28,6 @@ set shiftwidth=4
 set tabstop=4 	" tab is 4 spaces long
 set expandtab	" tabs are expanded to spaces
 set smarttab	"
-
-set noundofile  " creates a file with <file-name>.ext.un~ This creates
-                " persistent undo database. So, even upon closing and opening a
-                " file, the undo feature is present
 
 set nobackup
 set nowritebackup
@@ -57,7 +53,10 @@ set noswapfile  " Whenever a file is open, VIM creates a .swp or similar files,
 set backspace=indent,eol,start  " treat backspace like it behaves in all other
                                 " programs:http://vi.stackexchange.com/a/2163/2796
 
-highlight Comment ctermfg=yellow " On a terminal supporting 16 colors, comments are shown in green
+" On a terminal supporting 16 colors, following colors take effect for each type
+highlight statusline ctermbg=Cyan
+highlight Comment ctermfg=Red
+highlight Directory ctermfg=Green
 
 "If 'cscopetag' is set, the commands ":tag" and CTRL-] as well as "vim -t"
 "will always use :cstag instead of the default :tag behavior.  Effectively,
@@ -120,16 +119,27 @@ Plugin 'chazy/cscope_maps'
 Plugin 'vim-scripts/autoload_cscope.vim'
 " Lint plugin. Make it work, later.
 " Plugin 'w0rp/ale'
-" Plugin 'davidhalter/jedi-vim'
 Plugin 'vim-syntastic/syntastic'
-Plugin 'Shougo/neocomplete.vim'
+
+" The recursive flag is not working. But this plugin has submodules and needs
+" --recursive flag
+" Plugin --recursive 'python-mode/python-mode'
+
+" Plugin 'davidhalter/jedi-vim'
+" Plugin 'Shougo/neocomplete.vim'
 " YCMD is shutting down. Need to figure this out.
 " Plugin 'Valloric/YouCompleteMe'
+" Plugin 'derekwyatt/vim-scala'
 Plugin 'flazz/vim-colorschemes'
 " Plugin 'powerline/powerline'
-Plugin 'vim-scripts/bash-support'
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-scripts/bash-support.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+
+" Have this setting to ignore warnings AFTER loading syntastic
+let g:syntastic_python_checker_args='--ignore=E501'
+
 filetype plugin indent on    " required
