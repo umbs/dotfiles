@@ -1,44 +1,48 @@
 #!/bin/bash
 
-# One script for installation of essential software on a new MAC OSX book.
+# One script for installation of essential software on a new MAC OSX.
 
 # Homebrew:
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-# Brew Cask (may be already installed with brew)
+# Brew Cask (may be already installed with brew). Cask is extension of brew and
+# is mainly used for apps that require GUI. More importantly, brew installs
+# source and compiles it (apparently). But cask installs only the compiled
+# binary. So, it's fast and maybe that's the reason it's used for large GUI
+# based apps
+# https://apple.stackexchange.com/questions/125468/what-is-the-difference-between-brew-and-brew-cask
 brew install brew-cask
 
-# Tmux
+# Essentials
 brew install tmux
-
-# Git:
 brew install git
+brew install ctags
+brew install cscope
 
-# Projects from Github:
+# Personal Projects from Github:
 git clone https://github.com/umbs/dotfiles.git
 git clone https://github.com/umbs/Notes.git
-git clone https://github.com/umbs/practice.git
 
-# Copy files to $HOME
 cp dotfiles/vimrc ~/.vimrc
 cp dotfiles/gitconfig ~/.gitconfig
 cp dotfiles/bashrc ~/.bashrc
 
-# Vim plugin manager (Vundle) installation
+# Vim plugin manager (Vundle) installation. Needed to install rest of the
+# plugins
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-# Python comes pre-installed with Mac OS. Install pip and others
+# Python comes pre-installed with Mac OS. Install pip, flake8 ...
 sudo easy_install pip
 sudo easy_install pudb
 sudo easy_install pep8
 brew install flake8
 
-# Chrome:
+# Applications
 brew cask install google-chrome
-
-# Dropbox
+brew cask install visual-studio-code
 brew cask install dropbox
+brew cask install java 
 
 # EMAIL
-brew install mutt
-brew install alpine
+# brew install mutt
+# brew install alpine

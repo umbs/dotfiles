@@ -11,7 +11,14 @@ alias ll="ls -lhGp -color"
 alias ls='ls -hFG -color'
 alias p='pwd'
 
-alias trail_ws="sed --in-place 's/[[:space:]]\+$//'"
+# Following works when GNU tools is installed on Mac OSX. The whitespace, \t, \+
+# and all are understood by GNU regex parser (I think)
+# alias trail_ws="sed -i '' 's/[ \t]\+$//'"
+
+# Following works WITHOUT GNU tools installation, on plain/vanilla Mac OSX
+# shell.
+alias trail_ws="sed -i '' 's/[[:space:]]\{1,\}$//g'"
+
 alias git_clean_ws="git status --short | awk '{print $2}' | xargs sed --in-place 's/[[:space:]]\+$//'"
 
 # Colorize man pages
