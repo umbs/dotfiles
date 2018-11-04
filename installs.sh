@@ -38,6 +38,8 @@ sudo easy_install pep8
 brew install flake8
 
 # Applications
+# plugins for chrome: ublock, adblock, lastpass, pocket, stayfocused,
+# printfriendly, tomatotimer
 brew cask install google-chrome
 brew cask install visual-studio-code
 brew cask install dropbox
