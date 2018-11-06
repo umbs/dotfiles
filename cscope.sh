@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "====>Remove old cscope files"
+echo "====>Remove old cscope & tag files"
 rm -f cscope*
 rm -f tags
 echo "====>DONE"
