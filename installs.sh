@@ -45,6 +45,7 @@ brew cask install visual-studio-code
 brew cask install dropbox
 brew cask install java
 brew cask install wireshark
+brew cask install anki
 
 
 # EMAIL
