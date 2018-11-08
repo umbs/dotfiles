@@ -39,11 +39,13 @@ brew install flake8
 
 # Applications
 # plugins for chrome: ublock, adblock, lastpass, pocket, stayfocused,
-# printfriendly, tomatotimer
+# printfriendly, tomatotimer, coder's calendar
 brew cask install google-chrome
 brew cask install visual-studio-code
 brew cask install dropbox
-brew cask install java 
+brew cask install java
+brew cask install wireshark
+
 
 # EMAIL
 # brew install mutt
