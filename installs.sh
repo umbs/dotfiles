@@ -47,6 +47,10 @@ brew cask install java
 brew cask install wireshark
 brew cask install anki
 
+# sshfs installation
+brew cask install osxfuse
+brew install sshfs
+
 
 # EMAIL
 # brew install mutt
