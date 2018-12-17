@@ -53,6 +53,8 @@ set noswapfile  " Whenever a file is open, VIM creates a .swp or similar files,
 set backspace=indent,eol,start  " treat backspace like it behaves in all other
                                 " programs:http://vi.stackexchange.com/a/2163/2796
 
+" set foldmethod=indent   " This is used for folding Python code.
+
 " On a terminal supporting 16 colors, following colors take effect for each type
 highlight statusline ctermbg=Cyan
 highlight Comment ctermfg=Red
@@ -135,7 +137,19 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-scripts/bash-support.vim'
-Plugin 'zxqfl/tabnine-vim'
+
+" AI enabled autocomplete
+" Plugin 'zxqfl/tabnine-vim'
+
+" Emacs-org-mode, available in Vim
+Plugin 'jceb/vim-orgmode'
+
+" Python folding made easy
+" Plugin 'tmhedberg/SimpylFold'
+Plugin 'hari-rangarajan/CCTree'
+
+" Quite mature code navigation tool based on CodeQuery package. Investigate.
+Plugin 'devjoe/vim-codequery'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
