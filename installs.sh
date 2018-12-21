@@ -19,6 +19,9 @@ brew install git
 brew install ctags
 brew install cscope
 
+#networking tools
+brew install nmap
+
 # Personal Projects from Github:
 git clone https://github.com/umbs/dotfiles.git
 git clone https://github.com/umbs/Notes.git
@@ -47,9 +50,10 @@ brew cask install java
 brew cask install wireshark
 brew cask install anki
 
+# SMB (Server Message Block) is working and doing the job
 # sshfs installation
-brew cask install osxfuse
-brew install sshfs
+# brew cask install osxfuse
+# brew install sshfs
 
 
 # EMAIL
