@@ -172,6 +172,9 @@ Plugin 'hari-rangarajan/CCTree'
 " Quite mature code navigation tool based on CodeQuery package. Investigate.
 Plugin 'devjoe/vim-codequery'
 
+Plugin 'mattn/emmet-vim'
+
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
