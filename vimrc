@@ -53,7 +53,14 @@ set noswapfile  " Whenever a file is open, VIM creates a .swp or similar files,
 set backspace=indent,eol,start  " treat backspace like it behaves in all other
                                 " programs:http://vi.stackexchange.com/a/2163/2796
 
-" set foldmethod=indent   " This is used for folding Python code.
+set cursorline      " Highlight the cursor line
+"set cursorcolumn    " Highlight the cursor column
+
+" set foldmethod=indent   " Used for folding Python code.
+" set foldnestmax=3
+" nnoremap <space> za
+" vnoremap <space> zf
+
 
 " On a terminal supporting 16 colors, following colors take effect for each type
 highlight statusline ctermbg=Cyan
@@ -63,8 +70,7 @@ highlight Directory ctermfg=Green
 "If 'cscopetag' is set, the commands ":tag" and CTRL-] as well as "vim -t"
 "will always use :cstag instead of the default :tag behavior.  Effectively,
 "by setting 'cst', you will always search your cscope databases as well as
-"your tag files.  The default is off.  Examples:
-"        :set cst
+"your tag files.  The default is off.  Examples: "        :set cst
 "        :set nocst
 set cscopetag
 
@@ -73,20 +79,31 @@ set tags=tags;/
 
 " http://vim.wikia.com/wiki/Autoloading_Cscope_Database
 " Autoloading cscope
+" function! LoadCscope()
+"   let db = findfile("cscope.out", ".;")
+"   if (!empty(db))
+"     let path = strpart(db, 0, match(db, "/cscope.out$"))
+"     set nocscopeverbose " suppress 'duplicate connection' error
+"     exe "cs add " . db . " " . path
+"     set cscopeverbose
+"   " else add the database pointed to by environment variable
+"   elseif $CSCOPE_DB != ""
+"     cs add $CSCOPE_DB
+"   endif
+" endfunction
+" au BufEnter /* call LoadCscope()
+
 function! LoadCscope()
-  let db = findfile("cscope.out", ".;")
-  if (!empty(db))
-    let path = strpart(db, 0, match(db, "/cscope.out$"))
-    set nocscopeverbose " suppress 'duplicate connection' error
-    exe "cs add " . db . " " . path
-    set cscopeverbose
-  " else add the database pointed to by environment variable
-  elseif $CSCOPE_DB != ""
-    cs add $CSCOPE_DB
-  endif
+  set nocscopeverbose " suppress 'duplicate connection' error
+  let db = "/home/bupadhyayula/pan/devel/budapest-saas/src/libs/python/cscope.out"
+  exe "cs add " . db
+  let db = "/home/bupadhyayula/pan/plugins/saas-agent/main/src/scripts/cscope.out"
+  exe "cs add " . db
+  let db = "/home/bupadhyayula/pan/saas/main/src/apps/cscope.out"
+  exe "cs add " . db
+  set cscopeverbose
 endfunction
 au BufEnter /* call LoadCscope()
-
 
 
 "  For more:
@@ -133,16 +150,24 @@ Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
+
 " Some problem with this plugin, python and cscope
 " Plugin 'JCLiang/vim-cscope-utils'
+
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
-Plugin 'kien/ctrlp.vim'
+
+" Fuzzy finder
+" Plugin 'kien/ctrlp.vim'
+Plugin 'junegunn/fzf.vim'
+
 Plugin 'chazy/cscope_maps'
 Plugin 'vim-scripts/autoload_cscope.vim'
+
 " Lint plugin. Make it work, later.
-" Plugin 'w0rp/ale'
-Plugin 'vim-syntastic/syntastic'
+Plugin 'w0rp/ale'
+" One linting plugin is enough
+" Plugin 'vim-syntastic/syntastic'
 
 " The recursive flag is not working. But this plugin has submodules and needs
 " --recursive flag
@@ -152,12 +177,13 @@ Plugin 'vim-syntastic/syntastic'
 " Plugin 'Shougo/neocomplete.vim'
 " YCMD is shutting down. Need to figure this out.
 " Plugin 'Valloric/YouCompleteMe'
-" Plugin 'derekwyatt/vim-scala'
+
 Plugin 'flazz/vim-colorschemes'
 " Plugin 'powerline/powerline'
+
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'vim-scripts/bash-support.vim'
+" Plugin 'vim-scripts/bash-support.vim'
 
 " AI enabled autocomplete
 " Plugin 'zxqfl/tabnine-vim'
@@ -167,18 +193,30 @@ Plugin 'jceb/vim-orgmode'
 
 " Python folding made easy
 " Plugin 'tmhedberg/SimpylFold'
-Plugin 'hari-rangarajan/CCTree'
+" Plugin 'hari-rangarajan/CCTree'
 
 " Quite mature code navigation tool based on CodeQuery package. Investigate.
-Plugin 'devjoe/vim-codequery'
+" Plugin 'Shougo/unite.vim'
+" Plugin 'devjoe/vim-codequery'
+" If vim version is < 8.0, install these for codequery to work
+" Plugin 'tpope/vim-dispatch'
+" Plugin 'mileszs/ack.vim'
 
-Plugin 'mattn/emmet-vim'
-
+" There seem other perforce plugins that's popular. Investigate. This plugin has
+" very few perforce commands.
+Plugin 'nfvs/vim-perforce'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
 " Have this setting to ignore warnings AFTER loading syntastic
-let g:syntastic_python_checker_args='--ignore=E501'
+" let g:syntastic_python_checker_args='--ignore=E501'
+" let g:syntastic_quiet_messages = { 'regex': 'SC2148\|SC1234\|SC6789' }
+" E128 - Indentation on 2nd line
+" E501 - Too long line (79 chars only)
+let g:syntastic_quiet_messages = { 'regex': 'E128\|E501' }
+
+" jedi-vim settings. One Chlorine, Vim is compiled with py3
+" let g:jedi#force_py_version = 3
 
 filetype plugin indent on    " required
