@@ -63,9 +63,10 @@ vnoremap <space> zf
 
 
 " On a terminal supporting 16 colors, following colors take effect for each type
-highlight statusline ctermbg=Cyan
-highlight Comment ctermfg=Red
-highlight Directory ctermfg=Green
+" highlight statusline ctermbg=Cyan
+" highlight Comment ctermfg=Red
+" highlight Directory term=reverse ctermfg=Green
+colorscheme desert
 
 "If 'cscopetag' is set, the commands ":tag" and CTRL-] as well as "vim -t"
 "will always use :cstag instead of the default :tag behavior.  Effectively,
@@ -178,7 +179,7 @@ Plugin 'w0rp/ale'
 " YCMD is shutting down. Need to figure this out.
 " Plugin 'Valloric/YouCompleteMe'
 
-Plugin 'flazz/vim-colorschemes'
+" Plugin 'flazz/vim-colorschemes'
 " Plugin 'powerline/powerline'
 
 Plugin 'vim-airline/vim-airline'
@@ -216,7 +217,9 @@ call vundle#end()            " required
 " E501 - Too long line (79 chars only)
 let g:syntastic_quiet_messages = { 'regex': 'E128\|E501' }
 
-" jedi-vim settings. One Chlorine, Vim is compiled with py3
+" jedi-vim settings. On Chlorine, Vim is compiled with py3
 " let g:jedi#force_py_version = 3
+
+let g:airline_theme='light'
 
 filetype plugin indent on    " required
