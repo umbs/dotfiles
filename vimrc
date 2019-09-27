@@ -60,6 +60,8 @@ set foldmethod=indent   " Used for folding Python code.
 set foldnestmax=2
 nnoremap <space> za
 vnoremap <space> zf
+" Use zR to Recursively Open ALL folds
+" Use zM to restore all folds to original setting
 
 
 " On a terminal supporting 16 colors, following colors take effect for each type
