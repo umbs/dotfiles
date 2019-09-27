@@ -56,10 +56,10 @@ set backspace=indent,eol,start  " treat backspace like it behaves in all other
 set cursorline      " Highlight the cursor line
 "set cursorcolumn    " Highlight the cursor column
 
-" set foldmethod=indent   " Used for folding Python code.
-" set foldnestmax=3
-" nnoremap <space> za
-" vnoremap <space> zf
+set foldmethod=indent   " Used for folding Python code.
+set foldnestmax=2
+nnoremap <space> za
+vnoremap <space> zf
 
 
 " On a terminal supporting 16 colors, following colors take effect for each type
