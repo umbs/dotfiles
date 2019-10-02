@@ -63,7 +63,6 @@ vnoremap <space> zf
 " Use zR to Recursively Open ALL folds
 " Use zM to restore all folds to original setting
 
-
 " On a terminal supporting 16 colors, following colors take effect for each type
 " highlight statusline ctermbg=Cyan
 " highlight Comment ctermfg=Red
@@ -97,14 +96,16 @@ set tags=tags;/
 " au BufEnter /* call LoadCscope()
 
 function! LoadCscope()
-  set nocscopeverbose " suppress 'duplicate connection' error
-  let db = "/home/bupadhyayula/pan/devel/budapest-saas/src/libs/python/cscope.out"
-  exe "cs add " . db
-  let db = "/home/bupadhyayula/pan/plugins/saas-agent/main/src/scripts/cscope.out"
-  exe "cs add " . db
-  let db = "/home/bupadhyayula/pan/saas/main/src/apps/cscope.out"
-  exe "cs add " . db
-  set cscopeverbose
+  let db = findfile("cscope.out", ".;")
+  if (!empty(db))
+    let path = strpart(db, 0, match(db, "/cscope.out$"))
+    set nocscopeverbose " suppress 'duplicate connection' error
+    exe "cs add " . db . " " . path
+    set cscopeverbose
+  " else add the database pointed to by environment variable
+  elseif $CSCOPE_DB != ""
+    cs add $CSCOPE_DB
+  endif
 endfunction
 au BufEnter /* call LoadCscope()
 
@@ -225,3 +226,4 @@ let g:syntastic_quiet_messages = { 'regex': 'E128\|E501' }
 let g:airline_theme='light'
 
 filetype plugin indent on    " required
+filetype indent on
