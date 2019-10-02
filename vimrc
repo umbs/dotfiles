@@ -211,6 +211,9 @@ Plugin 'mileszs/ack.vim'
 Plugin 'nfvs/vim-perforce'
 Plugin 'ngemily/vim-vp4'
 
+" Rust plugins
+Plugin 'rust-lang/rust.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
