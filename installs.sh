@@ -18,6 +18,7 @@ brew install tmux
 brew install git
 brew install ctags
 brew install cscope
+brew install taskell
 
 #networking tools
 brew install nmap
