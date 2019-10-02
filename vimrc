@@ -200,15 +200,16 @@ Plugin 'jceb/vim-orgmode'
 " Plugin 'hari-rangarajan/CCTree'
 
 " Quite mature code navigation tool based on CodeQuery package. Investigate.
-" Plugin 'Shougo/unite.vim'
-" Plugin 'devjoe/vim-codequery'
+Plugin 'Shougo/unite.vim'
+Plugin 'devjoe/vim-codequery'
 " If vim version is < 8.0, install these for codequery to work
-" Plugin 'tpope/vim-dispatch'
-" Plugin 'mileszs/ack.vim'
+Plugin 'tpope/vim-dispatch'
+Plugin 'mileszs/ack.vim'
 
 " There seem other perforce plugins that's popular. Investigate. This plugin has
 " very few perforce commands.
 Plugin 'nfvs/vim-perforce'
+Plugin 'ngemily/vim-vp4'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
