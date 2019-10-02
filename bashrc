@@ -21,6 +21,16 @@ alias trail_ws="sed -i '' 's/[[:space:]]\{1,\}$//g'"
 
 alias git_clean_ws="git status --short | awk '{print $2}' | xargs sed --in-place 's/[[:space:]]\+$//'"
 
+# http://vim.wikia.com/wiki/Converting_tabs_to_spaces
+# https://howchoo.com/g/m2u0nthkyti/vim-convert-tabs-to-spaces
+# tabstop = How many columns a tab counts for
+# shiftwidth = How many columns text is indented with, when using reindent operation
+# expandtab = Use space instead of tab
+set tabstop=4 shiftwidth=4 expandtab
+
+# in a file that already has tabs, first set above properties and then do
+# :retab
+
 # Colorize man pages
 # http://boredzo.org/blog/archives/2016-08-15/colorized-man-pages-understood-and-customized
 man() {
