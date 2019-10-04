@@ -169,18 +169,22 @@ Plugin 'chazy/cscope_maps'
 Plugin 'vim-scripts/autoload_cscope.vim'
 
 " Lint plugin. Make it work, later.
-Plugin 'w0rp/ale'
-" One linting plugin is enough
-" Plugin 'vim-syntastic/syntastic'
+" Plugin 'w0rp/ale'
 
-" The recursive flag is not working. But this plugin has submodules and needs
-" --recursive flag
-" Plugin --recursive 'python-mode/python-mode'
+Plugin 'vim-syntastic/syntastic'
 
 " Plugin 'davidhalter/jedi-vim'
-" Plugin 'Shougo/neocomplete.vim'
+" For Vim versions < 8.0, use neocomplete. For versions >= 8.0, use deoplete
+Plugin 'Shougo/neocomplete.vim'
+
+" Deoplete requires Vim8 + python3.6.1 + Lua
+" Plugin 'Shougo/deoplete.nvim'
+
 " YCMD is shutting down. Need to figure this out.
 " Plugin 'Valloric/YouCompleteMe'
+
+" AI enabled autocomplete
+" Plugin 'zxqfl/tabnine-vim'
 
 " Plugin 'flazz/vim-colorschemes'
 " Plugin 'powerline/powerline'
@@ -188,9 +192,6 @@ Plugin 'w0rp/ale'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 " Plugin 'vim-scripts/bash-support.vim'
-
-" AI enabled autocomplete
-" Plugin 'zxqfl/tabnine-vim'
 
 " Emacs-org-mode, available in Vim
 Plugin 'jceb/vim-orgmode'
@@ -226,6 +227,11 @@ let g:syntastic_quiet_messages = { 'regex': 'E128\|E501' }
 
 " jedi-vim settings. On Chlorine, Vim is compiled with py3
 " let g:jedi#force_py_version = 3
+
+" neocomplete settings. Enable it on Vim startup.
+" Many more settings can be found on it's homepage:
+"	https://github.com/Shougo/neocomplete.vim
+let g:neocomplete#enable_at_startup = 1
 
 let g:airline_theme='light'
 
