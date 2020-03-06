@@ -9,3 +9,8 @@ setw -g status-bg white
 
 # prevents window rename to executed commands
 set-option -g allow-rename off
+
+# When a window is deleted, renumber
+# Do this on existing tmux session
+# movew -r
+set-option -g renumber-windows on
