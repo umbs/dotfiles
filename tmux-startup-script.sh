@@ -5,13 +5,13 @@ FOLDER=/Users/bupadhyayula/Dropbox
 tmux start-server
 
 tmux new-session -d -s local -n 'Todo'
-tmux send-keys "vim -p $FOLDER/Todo.txt $FOLDER/WorkTodo.txt" C-m
+tmux send-keys "nvim -p $FOLDER/Todo.txt $FOLDER/WorkTodo.txt" C-m
 
 tmux new-window -t local:1 -n 'Journal'
-tmux send-keys "vim $FOLDER/Journal.txt" C-m
+tmux send-keys "nvim $FOLDER/Journal.txt" C-m
 
 tmux new-window -t local:2 -n 'scratch'
-tmux send-keys "vim $FOLDER/scratch.txt" C-m
+tmux send-keys "nvim $FOLDER/scratch.txt" C-m
 
 tmux new-window -t local:3 -n 'blogs'
 
