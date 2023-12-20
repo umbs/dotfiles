@@ -21,6 +21,7 @@ brew install cloc   # Counts number of lines of code
 brew install cscope
 brew install ctags
 brew install git
+brew install kindle
 brew install monodraw --cask
 brew install nmap   # networking tools
 brew install node   # installs NodeJS and npm

@@ -15,6 +15,7 @@ brew uninstall git
 brew uninstall google-chrome
 brew uninstall java
 brew uninstall jq
+brew uninstall kindle
 brew uninstall monodraw
 brew uninstall neovim
 brew uninstall nmap
