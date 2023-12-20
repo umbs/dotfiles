@@ -47,7 +47,13 @@
         gsl='shortlog -s -n --all --no-merges'
         mylog = log --author=Bhaskar --no-merges
 
-[diff]
-	algorithm = patience
 [pull]
 	rebase = false
+
+[diff]
+    algorithm = patience
+    tool = meld
+[difftool]
+    prompt = false
+[difftool "meld"]
+    cmd = meld "$LOCAL" "$REMOTE"
