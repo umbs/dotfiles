@@ -60,6 +60,7 @@ brew install wireshark --cask
 brew install anki --cask
 brew install alacritty --cask
 brew install slack --cask
+brew install postman --cask
 
 # Counts number of lines of code
 brew install cloc
