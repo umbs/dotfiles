@@ -16,5 +16,5 @@ echo "====>DONE"
 
 echo "====>Build ctags"
 # --extra=+f allows python libraries in tags file, source StackOverflow
-ctags -R --extra=+f --exclude="*.js" .
+ctags -R --extra=+f --exclude="*.js" --exclude=".git" --exclude="cdk.out" --exclude=".venv" --exclude="venv" .
 echo "====>DONE"

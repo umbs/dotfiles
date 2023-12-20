@@ -13,7 +13,7 @@ tmux send-keys "nvim $FOLDER/Journal.txt" C-m
 tmux new-window -t local:2 -n 'scratch'
 tmux send-keys "nvim $FOLDER/scratch.txt" C-m
 
-tmux new-window -t local:3 -n 'blogs'
+tmux new-window -t local:3 -n 'Notes'
 
 tmux new-window -t local:4 -n 'practice'
 

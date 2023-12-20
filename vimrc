@@ -56,12 +56,38 @@ set backspace=indent,eol,start  " treat backspace like it behaves in all other
 set cursorline      " Highlight the cursor line
 "set cursorcolumn    " Highlight the cursor column
 
-set foldmethod=indent   " Used for folding Python code.
-set foldnestmax=2
-nnoremap <space> za
-vnoremap <space> zf
+" set foldmethod=indent   " Used for folding Python code.
+" set foldnestmax=2
+
+" Mappings
+" --------------------------------- "
+" Open vimrc file in split window
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+
+" Source vimrc
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" nnoremap <space> za
+" vnoremap <space> zf
 " Use zR to Recursively Open ALL folds
 " Use zM to restore all folds to original setting
+
+" Mapping tabs to move forward or back, like tabs in a browser, in normal mode.
+nnoremap <Tab> gt
+nnoremap <S-Tab> gT
+
+" Abbreviations
+" --------------------------------- "
+" Email
+:iabbrev @@ umbs_sairam@yahoo.com
+:iabbrev ccopy Copyright 2020, Bhaskar Upadhyayula. All Rights Reserved
+
+
+" Autocommands
+" --------------------------------- "
+" Comment out an entire line in Python file when you do <localleader>c
+:autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
+
 
 " On a terminal supporting 16 colors, following colors take effect for each type
 " highlight statusline ctermbg=Cyan
@@ -109,11 +135,12 @@ function! LoadCscope()
 endfunction
 au BufEnter /* call LoadCscope()
 
-
 "  For more:
 "  http://vim.wikia.com/wiki/Insert_current_date_or_time
-nnoremap <F5> "=strftime("[%a %d, %H:%M]")<CR>P
-inoremap <F5> <C-R>=strftime("[%a %d, %H:%M]")<CR>
+" nnoremap <F5> "=strftime("[%a %d, %H:%M]")<CR>P
+" inoremap <F5> <C-R>=strftime("[%a %d, %H:%M]")<CR>
+nnoremap <F5> "=strftime("%Y, %b %d (%a)")<CR>P
+inoremap <F5> <C-R>=strftime("%Y, %b %d (%a)")<CR>
 
 " Specific to Tagbar plugin.
 " This setting opens Tagbar window in bottom of page. Default is to the right.
@@ -151,69 +178,88 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
-
-" Some problem with this plugin, python and cscope
-" Plugin 'JCLiang/vim-cscope-utils'
+Plugin 'tpope/vim-commentary'
 
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
 
 " Fuzzy finder
-" Plugin 'kien/ctrlp.vim'
 Plugin 'junegunn/fzf.vim'
 
 Plugin 'chazy/cscope_maps'
 Plugin 'vim-scripts/autoload_cscope.vim'
 
-" Lint plugin. Make it work, later.
-" Plugin 'w0rp/ale'
+" Language Server Protocol - start
+" I don't fully understand this. But here's whatever I know ...
+" vim-lsp is LSP client that talk to pyls, the LSP server
+Plugin 'prabirshrestha/vim-lsp'
+" vim-lsp requires *some configs* that vim-lsp-settings provide. It's
+" recommended by Prabir Shresta on vim-lsp page.
+Plugin 'mattn/vim-lsp-settings'
+"
+Plugin 'prabirshrestha/asyncomplete.vim'
+Plugin 'prabirshrestha/asyncomplete-lsp.vim'
+" Language Server Protocol - end
 
-Plugin 'vim-syntastic/syntastic'
+Plugin 'ludovicchabant/vim-gutentags'
+
+" Lint plugin. Make it work, later.
+Plugin 'w0rp/ale'
+
+" ============================================
+"           PLUGIN GRAVEYARD
+" ============================================
+"
+" Plugin 'vim-airline/vim-airline'
+" Plugin 'vim-airline/vim-airline-themes'
+
+" Plugin 'kien/ctrlp.vim'
+
+" One linting plugin is enough
+" Plugin 'vim-syntastic/syntastic'
 
 " Plugin 'davidhalter/jedi-vim'
-" For Vim versions < 8.0, use neocomplete. For versions >= 8.0, use deoplete
-Plugin 'Shougo/neocomplete.vim'
-
-" Deoplete requires Vim8 + python3.6.1 + Lua
-" Plugin 'Shougo/deoplete.nvim'
-
+" Plugin 'Shougo/neocomplete.vim'
 " YCMD is shutting down. Need to figure this out.
 " Plugin 'Valloric/YouCompleteMe'
-
-" AI enabled autocomplete
-" Plugin 'zxqfl/tabnine-vim'
 
 " Plugin 'flazz/vim-colorschemes'
 " Plugin 'powerline/powerline'
 
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 " Plugin 'vim-scripts/bash-support.vim'
 
+" AI enabled autocomplete
+" Plugin 'zxqfl/tabnine-vim'
+
 " Emacs-org-mode, available in Vim
-Plugin 'jceb/vim-orgmode'
+" Plugin 'jceb/vim-orgmode'
 
 " Python folding made easy
 " Plugin 'tmhedberg/SimpylFold'
 " Plugin 'hari-rangarajan/CCTree'
 
 " Quite mature code navigation tool based on CodeQuery package. Investigate.
-Plugin 'Shougo/unite.vim'
-Plugin 'devjoe/vim-codequery'
+" Plugin 'Shougo/unite.vim'
+" Plugin 'devjoe/vim-codequery'
 " If vim version is < 8.0, install these for codequery to work
-Plugin 'tpope/vim-dispatch'
-Plugin 'mileszs/ack.vim'
+" Plugin 'tpope/vim-dispatch'
+" Plugin 'mileszs/ack.vim'
 
 " There seem other perforce plugins that's popular. Investigate. This plugin has
 " very few perforce commands.
-Plugin 'nfvs/vim-perforce'
-Plugin 'ngemily/vim-vp4'
+" Plugin 'nfvs/vim-perforce'
+" Plugin 'ngemily/vim-vp4'
 
 " Rust plugins
-Plugin 'rust-lang/rust.vim'
+" Plugin 'rust-lang/rust.vim'
+
+"coc.vim
+" Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Some problem with this plugin, python and cscope
+" Plugin 'JCLiang/vim-cscope-utils'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -223,15 +269,10 @@ call vundle#end()            " required
 " let g:syntastic_quiet_messages = { 'regex': 'SC2148\|SC1234\|SC6789' }
 " E128 - Indentation on 2nd line
 " E501 - Too long line (79 chars only)
-let g:syntastic_quiet_messages = { 'regex': 'E128\|E501' }
+" let g:syntastic_quiet_messages = { 'regex': 'E128\|E501' }
 
 " jedi-vim settings. On Chlorine, Vim is compiled with py3
 " let g:jedi#force_py_version = 3
-
-" neocomplete settings. Enable it on Vim startup.
-" Many more settings can be found on it's homepage:
-"	https://github.com/Shougo/neocomplete.vim
-let g:neocomplete#enable_at_startup = 1
 
 let g:airline_theme='light'
 

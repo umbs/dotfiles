@@ -18,10 +18,10 @@ brew install tmux
 brew install git
 brew install ctags
 brew install cscope
-brew install taskell
+brew install ripgrep
 
-#networking tools
-brew install nmap
+# networking tools
+# brew install nmap
 
 # Personal Projects from Github:
 git clone https://github.com/umbs/dotfiles.git
@@ -37,8 +37,8 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 # Python comes pre-installed with Mac OS. Install pip, flake8 ...
 sudo easy_install pip
-sudo easy_install pudb
-sudo easy_install pep8
+# sudo easy_install pudb
+# sudo easy_install pep8
 brew install flake8
 
 # Applications
@@ -51,12 +51,3 @@ brew cask install java
 brew cask install wireshark
 brew cask install anki
 
-# SMB (Server Message Block) is working and doing the job
-# sshfs installation
-# brew cask install osxfuse
-# brew install sshfs
-
-
-# EMAIL
-# brew install mutt
-# brew install alpine
