@@ -22,7 +22,6 @@ brew install ripgrep
 brew install --HEAD vim     # install developer version
 brew install --HEAD neovim  # install developer version
 brew install node   # installs NodeJS and npm
-brew install ffmpeg
 
 # Azure Cloud NGFW related installs
 brew install jq
@@ -46,8 +45,6 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 # Python comes pre-installed with Mac OS. Install pip, flake8 ...
 sudo easy_install pip
-# sudo easy_install pudb
-# sudo easy_install pep8
 brew install flake8
 
 # Applications
