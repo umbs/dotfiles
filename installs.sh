@@ -14,16 +14,19 @@
 # brew install brew-cask
 
 # Essentials
-brew install tmux
-brew install git
-brew install ctags
-brew install cscope
-brew install ripgrep
-brew install --HEAD vim     # install developer version
 brew install --HEAD neovim  # install developer version
-brew install node   # installs NodeJS and npm
+brew install --HEAD vim     # install developer version
+brew install bbedit --cask
 brew install cloc   # Counts number of lines of code
+brew install cscope
+brew install ctags
+brew install git
+brew install monodraw --cask
 brew install nmap   # networking tools
+brew install node   # installs NodeJS and npm
+brew install ripgrep
+brew install shellcheck
+brew install tmux
 brew install vlc
 
 # Azure Cloud NGFW related installs
