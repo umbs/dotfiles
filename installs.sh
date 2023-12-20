@@ -59,18 +59,19 @@ brew install java --cask
 brew install wireshark --cask
 brew install anki --cask
 brew install alacritty --cask
+
+# Apps used at work
 brew install slack --cask
 brew install postman --cask
+brew install zoom --cask
+# ... End
 
 # Counts number of lines of code
 brew install cloc
-
-# Git visualizer
-brew install git-sim
 
 # TODO: Softwares that do not have brew installations
 # alacritty, Microsoft Teams, Zoom
 # dash app,
 
 # Projects I keep grokking
-git clone https://github.com/neovim/neovim.git ~/
+git clone https://github.com/neovim/neovim.git ~/neovim
