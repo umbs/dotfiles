@@ -11,7 +11,7 @@
 # binary. So, it's fast and maybe that's the reason it's used for large GUI
 # based apps
 # https://apple.stackexchange.com/questions/125468/what-is-the-difference-between-brew-and-brew-cask
-brew install brew-cask
+# brew install brew-cask
 
 # Essentials
 brew install tmux
@@ -29,20 +29,6 @@ brew install azure-cli
 
 # networking tools
 brew install nmap
-
-# Personal Projects from Github:
-git clone https://github.com/umbs/dotfiles.git ~/dotfiles
-git clone https://github.com/umbs/Notes.git ~/Notes
-git clone https://github.com/umbs/practice.git ~/practice
-git clone https://github.com/umbs/vim-configs.git ~/vim-configs
-
-cp dotfiles/vimrc ~/.vimrc
-cp dotfiles/gitconfig ~/.gitconfig
-cp dotfiles/bashrc ~/.bashrc
-
-# Vim plugin manager (Vundle) installation. Needed to install rest of the
-# plugins
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 # Python comes pre-installed with Mac OS. Install pip, flake8 ...
 sudo easy_install pip
@@ -75,3 +61,18 @@ brew install cloc
 
 # Projects I keep grokking
 git clone https://github.com/neovim/neovim.git ~/neovim
+
+# Personal Projects from Github:
+git clone https://github.com/umbs/dotfiles.git ~/dotfiles
+git clone https://github.com/umbs/Notes.git ~/Notes
+git clone https://github.com/umbs/practice.git ~/practice
+git clone https://github.com/umbs/vim-configs.git ~/vim-configs
+
+cp dotfiles/vimrc ~/.vimrc
+cp dotfiles/gitconfig ~/.gitconfig
+cp dotfiles/bashrc ~/.bashrc
+
+# Vim plugin manager (Vundle) installation. Needed to install rest of the
+# plugins
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
