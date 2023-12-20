@@ -24,6 +24,7 @@ brew install bbedit --cask
 brew install cloc   # Counts number of lines of code
 brew install cscope
 brew install ctags
+brew install docker --cask
 brew install git
 brew install kindle
 brew install monodraw --cask

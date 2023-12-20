@@ -9,6 +9,7 @@ brew uninstall bbedit
 brew uninstall cloc
 brew uninstall cscope
 brew uninstall ctags
+brew uninstall docker
 brew uninstall dropbox
 brew uninstall flake8
 brew uninstall git
