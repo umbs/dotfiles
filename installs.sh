@@ -3,7 +3,12 @@
 # One script for installation of essential software on a new MAC OSX.
 
 # Homebrew:
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Default shell on MacOS is zsh. Homebrew is installed in /opt/homebrew/...
+# location. This is not in the PATH. Following makes `brew` command available
+# in the path
+echo "eval $(/opt/homebrew/bin/brew shellenv)" >> ~/.zshrc
 
 # Brew Cask (may be already installed with brew). Cask is extension of brew and
 # is mainly used for apps that require GUI. More importantly, brew installs
@@ -13,7 +18,6 @@
 # https://apple.stackexchange.com/questions/125468/what-is-the-difference-between-brew-and-brew-cask
 # brew install brew-cask
 
-# Essentials
 brew install --HEAD neovim  # install developer version
 brew install --HEAD vim     # install developer version
 brew install bbedit --cask
@@ -35,30 +39,29 @@ brew install jq
 brew install azure-cli
 
 # Python comes pre-installed with Mac OS. Install pip, flake8 ...
-sudo easy_install pip
 brew install flake8
 
 # Applications
 # plugins for browser: ublock, adblock, bitwarden, lastpass, pocket,
 # raindrop.io stayfocused, printfriendly, tomatotimer, coders calendar
 
-brew install google-chrome --cask
-brew install visual-studio-code --cask
-brew install dropbox --cask
-brew install java --cask
-brew install wireshark --cask
-brew install anki --cask
 brew install alacritty --cask
+brew install anki --cask
+brew install dropbox --cask	# Requires entering password
+brew install google-chrome --cask
+brew install openjdk --cask
+brew install visual-studio-code --cask
+brew install wireshark --cask
 
 # Apps used at work
 brew install slack --cask
 brew install postman --cask
-brew install zoom --cask
+brew install zoom --cask	# Requires entering password
 # ... End
 
 # TODO: Softwares that do not have brew installations
-# alacritty, Microsoft Teams, Zoom
-# dash app,
+# alacritty, Microsoft Teams
+# Dash app,
 
 # Projects I keep grokking
 git clone https://github.com/neovim/neovim.git ~/neovim
@@ -73,7 +76,6 @@ cp dotfiles/vimrc ~/.vimrc
 cp dotfiles/gitconfig ~/.gitconfig
 cp dotfiles/bashrc ~/.bashrc
 
-# Vim plugin manager (Vundle) installation. Needed to install rest of the
-# plugins
+# Vim plugin manager (Vundle) installation. This package manager is needed to
+# install rest of the plugins
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
