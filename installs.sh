@@ -19,6 +19,12 @@ brew install git
 brew install ctags
 brew install cscope
 brew install ripgrep
+brew install --HEAD vim     # install developer version
+brew install --HEAD neovim  # install developer version
+
+# Azure Cloud NGFW related installs
+brew install jq
+brew install azure-cli
 
 # networking tools
 brew install nmap
