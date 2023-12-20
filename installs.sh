@@ -21,7 +21,7 @@ brew install cscope
 brew install ripgrep
 
 # networking tools
-# brew install nmap
+brew install nmap
 
 # Personal Projects from Github:
 git clone https://github.com/umbs/dotfiles.git
@@ -42,8 +42,9 @@ sudo easy_install pip
 brew install flake8
 
 # Applications
-# plugins for chrome: ublock, adblock, lastpass, pocket, stayfocused,
-# printfriendly, tomatotimer, coder's calendar
+# plugins for browser: ublock, adblock, bitwarden, lastpass, pocket,
+# raindrop.io stayfocused, printfriendly, tomatotimer, coders calendar
+
 brew cask install google-chrome
 brew cask install visual-studio-code
 brew cask install dropbox
@@ -51,3 +52,6 @@ brew cask install java
 brew cask install wireshark
 brew cask install anki
 
+# TODO: Softwares that do not have brew installations
+# alacritty, Microsoft Teams, Zoom
+# dash app,
