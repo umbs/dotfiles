@@ -1,139 +1,62 @@
-" Vundle recommendation
-set nocompatible " be iMproved, required for Vundle
-filetype plugin indent off " required for Vundle
-
-
-" ===================================================================
-"                   Vanila Vim settings
-" ===================================================================
+filetype plugin indent on
+filetype indent on
 
 syntax on       " syntax highlighting ON (default is OFF)
 syntax enable
 
-set incsearch	" incremental search
+set backspace=indent,eol,start  " treat backspace like it behaves in all other
+                                " programs:http://vi.stackexchange.com/a/2163/2796
+
+set completeopt=menuone,noinsert,noselect
+set diffopt+=vertical   " diff options are shown in vertical split
+set expandtab	" tabs are expanded to spaces
 set hlsearch  	" highlight search results
 set ignorecase  " ignore case during search
-
-set number 	    " set line numbers
-set ruler 	    " (row, colum, % of document) are displayed at right bottom
-set timeoutlen=2000 	" 2 seconds instead of 1, for operations involving
-			    " multiple keys such as tmux and screen.
-set textwidth=80 	" 80 column width
-set wildmenu	" when 'help patt' + tab, gives options in status line
-set path+=**    " enables fuzzy file search using :find command
-                " set wildignore+=**/directory/** should ignore files in a
-                " certain directory
-
-set shiftwidth=4
-set tabstop=4 	" tab is 4 spaces long
-set expandtab	" tabs are expanded to spaces
-set smarttab	"
-
+set incsearch	" incremental search
+" set mouse=a     " enable mouse
 set nobackup
-set nowritebackup
-" Where 'nowritebackup' changes the default "save" behavior of Vim, which is:
-"   write buffer to new file
-"   delete the original file
-"   rename the new file
-" and makes Vim write the buffer to the original file (resulting in the risk of
-" destroying it in case of an I/O error). But you prevent "jumping files" on the
-" Windows desktop with it, which is the primary reason for me to have
-" nowritebackup in place.
-" Reference: https://stackoverflow.com/a/607475/630866
-
 set noswapfile  " Whenever a file is open, VIM creates a .swp or similar files,
                 " which prevents/warns other's from opening/modifying same file
                 " at same time. This is good and bad. Good, for obvious reasons.
                 " Bad because, if the file is inside Dropbox, the .filename.swp
                 " is *somehow* always current or in modified state. So, Dropbox
                 " continuously tries to sync that file which hogs up CPU (from
-                " one experience). Alternately, the location of swap file can
-                " be changed to outside Dropbox directory.
+                " one experience). Alternately, the location of swap file can be
+                " changed to outside Dropbox directory.
 
-set backspace=indent,eol,start  " treat backspace like it behaves in all other
-                                " programs:http://vi.stackexchange.com/a/2163/2796
+set nowritebackup   " Where 'nowritebackup' changes the default "save" behavior
+                    " of Vim, which is:
+                    "   write buffer to new file delete the original file rename
+                    "   the new file and makes Vim write the buffer to the
+                    "   original file (resulting in the risk of destroying it in
+                    "   case of an I/O error). But you prevent "jumping files"
+                    "   on the Windows desktop with it, which is the primary
+                    "   reason for me to have nowritebackup in place. Reference:
+                    "   https://stackoverflow.com/a/607475/630866
 
+set number 	    " set line numbers
+set path+=**    " enables fuzzy file search using :find command set wildignore+=**/directory/** should ignore files in a certain directory
+
+set ruler 	    " (row, colum, % of document) are displayed at right bottom
+set smartcase   " if we enabled case insensitive search, this setting overrides
+                " that when searching with Upper case letters
+
+set shiftwidth=4
+set smarttab	"
+set tabstop=4 	" tab is 4 spaces long
+
+set tags=tags;/ " Vim will look for tags file from current directory up to the root
+
+set textwidth=80 	" 80 column width
+set timeoutlen=2000 	" 2 seconds instead of 1, for operations involving multiple keys such as tmux and screen.
+set wildmenu	" when 'help patt' + tab, gives options in status line
 set cursorline      " Highlight the cursor line
-"set cursorcolumn    " Highlight the cursor column
-
-" set foldmethod=indent   " Used for folding Python code.
-" set foldnestmax=2
-
-" Mappings
-" --------------------------------- "
-" Open vimrc file in split window
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-
-" Source vimrc
-nnoremap <leader>sv :source $MYVIMRC<cr>
-
-" nnoremap <space> za
-" vnoremap <space> zf
-" Use zR to Recursively Open ALL folds
-" Use zM to restore all folds to original setting
-
-" Mapping tabs to move forward or back, like tabs in a browser, in normal mode.
-nnoremap <Tab> gt
-nnoremap <S-Tab> gT
-
-" Abbreviations
-" --------------------------------- "
-" Email
-:iabbrev @@ umbs_sairam@yahoo.com
-:iabbrev ccopy Copyright 2020, Bhaskar Upadhyayula. All Rights Reserved
-
-
-" Autocommands
-" --------------------------------- "
-" Comment out an entire line in Python file when you do <localleader>c
-:autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
-
-
-" On a terminal supporting 16 colors, following colors take effect for each type
-" highlight statusline ctermbg=Cyan
-" highlight Comment ctermfg=Red
-" highlight Directory term=reverse ctermfg=Green
-colorscheme desert
-
-"If 'cscopetag' is set, the commands ":tag" and CTRL-] as well as "vim -t"
-"will always use :cstag instead of the default :tag behavior.  Effectively,
-"by setting 'cst', you will always search your cscope databases as well as
-"your tag files.  The default is off.  Examples: "        :set cst
-"        :set nocst
-set cscopetag
-
-" Vim will look for tags file from current directory up to the root
-set tags=tags;/
-
-" http://vim.wikia.com/wiki/Autoloading_Cscope_Database
-" Autoloading cscope
-" function! LoadCscope()
-"   let db = findfile("cscope.out", ".;")
-"   if (!empty(db))
-"     let path = strpart(db, 0, match(db, "/cscope.out$"))
-"     set nocscopeverbose " suppress 'duplicate connection' error
-"     exe "cs add " . db . " " . path
-"     set cscopeverbose
-"   " else add the database pointed to by environment variable
-"   elseif $CSCOPE_DB != ""
-"     cs add $CSCOPE_DB
-"   endif
-" endfunction
-" au BufEnter /* call LoadCscope()
-
-function! LoadCscope()
-  let db = findfile("cscope.out", ".;")
-  if (!empty(db))
-    let path = strpart(db, 0, match(db, "/cscope.out$"))
-    set nocscopeverbose " suppress 'duplicate connection' error
-    exe "cs add " . db . " " . path
-    set cscopeverbose
-  " else add the database pointed to by environment variable
-  elseif $CSCOPE_DB != ""
-    cs add $CSCOPE_DB
-  endif
-endfunction
-au BufEnter /* call LoadCscope()
+set cscopetag	"If 'cscopetag' is set, the commands ":tag" and CTRL-] as well as "vim -t"
+				"will always use :cstag instead of the default :tag behavior.  Effectively,
+				"by setting 'cst', you will always search your cscope databases as well as
+				"your tag files.  The default is off.  Examples:
+				"        :set cst
+				"        :set nocst
 
 "  For more:
 "  http://vim.wikia.com/wiki/Insert_current_date_or_time
@@ -142,139 +65,18 @@ au BufEnter /* call LoadCscope()
 nnoremap <F5> "=strftime("%Y, %b %d (%a)")<CR>P
 inoremap <F5> <C-R>=strftime("%Y, %b %d (%a)")<CR>
 
-" Specific to Tagbar plugin.
-" This setting opens Tagbar window in bottom of page. Default is to the right.
-" The number (15) indicates number of lines to display. Increase/decrease as
-" needed.
-" let g:tagbar_vertical=15
-nnoremap <silent> <F9> :TagbarToggle<CR>
-
-" 'Esc' switches to normal mode.
-" ':TagbarToggle' toggles current Tagbar state.
-" 'A' switches to insert mode and cursor at end of current line.
-inoremap <silent> <F9> <Esc>:TagbarToggle<CR>A
-
-" NERDTree plugin key maps
-nnoremap <F8> :NERDTreeToggle<CR>
-inoremap <F8> <Esc>:NERDTreeToggle<CR>A
-
-" show 'buffers' to list recently opened files.
-nnoremap <F10> :buffers<CR>
-inoremap <F10> <Esc>:buffers<CR>A
-
-
-" ===================================================================
-"               Vundle Vim recommended settings
-" ===================================================================
+" If available, enable termguicolors
+if (has("termguicolors"))
+    set termguicolors
+endif
 
 " Everything below is copied from VundleVim website
 " https://github.com/VundleVim/Vundle.vim
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-commentary'
-
-Plugin 'scrooloose/nerdtree'
-Plugin 'majutsushi/tagbar'
-
-" Fuzzy finder
-Plugin 'junegunn/fzf.vim'
-
-Plugin 'chazy/cscope_maps'
-Plugin 'vim-scripts/autoload_cscope.vim'
-
-" Language Server Protocol - start
-" I don't fully understand this. But here's whatever I know ...
-" vim-lsp is LSP client that talk to pyls, the LSP server
-Plugin 'prabirshrestha/vim-lsp'
-" vim-lsp requires *some configs* that vim-lsp-settings provide. It's
-" recommended by Prabir Shresta on vim-lsp page.
-Plugin 'mattn/vim-lsp-settings'
-"
-Plugin 'prabirshrestha/asyncomplete.vim'
-Plugin 'prabirshrestha/asyncomplete-lsp.vim'
-" Language Server Protocol - end
-
-Plugin 'ludovicchabant/vim-gutentags'
-
-" Lint plugin. Make it work, later.
-Plugin 'w0rp/ale'
-
-" ============================================
-"           PLUGIN GRAVEYARD
-" ============================================
-"
-" Plugin 'vim-airline/vim-airline'
-" Plugin 'vim-airline/vim-airline-themes'
-
-" Plugin 'kien/ctrlp.vim'
-
-" One linting plugin is enough
-" Plugin 'vim-syntastic/syntastic'
-
-" Plugin 'davidhalter/jedi-vim'
-" Plugin 'Shougo/neocomplete.vim'
-" YCMD is shutting down. Need to figure this out.
-" Plugin 'Valloric/YouCompleteMe'
-
-" Plugin 'flazz/vim-colorschemes'
-" Plugin 'powerline/powerline'
-
-" Plugin 'vim-scripts/bash-support.vim'
-
-" AI enabled autocomplete
-" Plugin 'zxqfl/tabnine-vim'
-
-" Emacs-org-mode, available in Vim
-" Plugin 'jceb/vim-orgmode'
-
-" Python folding made easy
-" Plugin 'tmhedberg/SimpylFold'
-" Plugin 'hari-rangarajan/CCTree'
-
-" Quite mature code navigation tool based on CodeQuery package. Investigate.
-" Plugin 'Shougo/unite.vim'
-" Plugin 'devjoe/vim-codequery'
-" If vim version is < 8.0, install these for codequery to work
-" Plugin 'tpope/vim-dispatch'
-" Plugin 'mileszs/ack.vim'
-
-" There seem other perforce plugins that's popular. Investigate. This plugin has
-" very few perforce commands.
-" Plugin 'nfvs/vim-perforce'
-" Plugin 'ngemily/vim-vp4'
-
-" Rust plugins
-" Plugin 'rust-lang/rust.vim'
-
-"coc.vim
-" Plugin 'neoclide/coc.nvim', {'branch': 'release'}
-
-" Some problem with this plugin, python and cscope
-" Plugin 'JCLiang/vim-cscope-utils'
-
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-
-" Have this setting to ignore warnings AFTER loading syntastic
-" let g:syntastic_python_checker_args='--ignore=E501'
-" let g:syntastic_quiet_messages = { 'regex': 'SC2148\|SC1234\|SC6789' }
-" E128 - Indentation on 2nd line
-" E501 - Too long line (79 chars only)
-" let g:syntastic_quiet_messages = { 'regex': 'E128\|E501' }
-
-" jedi-vim settings. On Chlorine, Vim is compiled with py3
-" let g:jedi#force_py_version = 3
-
-let g:airline_theme='light'
-
-filetype plugin indent on    " required
-filetype indent on
+call vundle#end()
