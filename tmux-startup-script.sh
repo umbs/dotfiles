@@ -8,7 +8,7 @@ tmux new-session -d -s local -n 'Todo'
 tmux send-keys "nvim -p $FOLDER/Todo.txt $FOLDER/WorkTodo.txt" C-m
 
 tmux new-window -t local:1 -n 'Journal'
-tmux send-keys "nvim $FOLDER/Journal.txt" C-m
+tmux send-keys "nvim $HOME/Notes/Journal.txt" C-m
 
 tmux new-window -t local:2 -n 'scratch'
 tmux send-keys "nvim $FOLDER/scratch.txt" C-m

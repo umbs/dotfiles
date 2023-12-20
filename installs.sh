@@ -33,6 +33,7 @@ brew install nmap   # networking tools
 brew install node   # installs NodeJS and npm
 brew install ripgrep
 brew install shellcheck
+brew install stow   # GNU stow for config file management
 brew install tmux
 brew install vlc
 brew install yt-dlp
