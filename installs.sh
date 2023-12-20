@@ -31,9 +31,9 @@ brew install azure-cli
 brew install nmap
 
 # Personal Projects from Github:
-git clone https://github.com/umbs/dotfiles.git
-git clone https://github.com/umbs/Notes.git
-git clone https://github.com/umbs/practice.git
+git clone https://github.com/umbs/dotfiles.git ~/
+git clone https://github.com/umbs/Notes.git ~/
+git clone https://github.com/umbs/practice.git ~/
 
 cp dotfiles/vimrc ~/.vimrc
 cp dotfiles/gitconfig ~/.gitconfig
@@ -51,12 +51,14 @@ brew install flake8
 # plugins for browser: ublock, adblock, bitwarden, lastpass, pocket,
 # raindrop.io stayfocused, printfriendly, tomatotimer, coders calendar
 
-brew cask install google-chrome
-brew cask install visual-studio-code
-brew cask install dropbox
-brew cask install java
-brew cask install wireshark
-brew cask install anki
+brew install google-chrome --cask
+brew install visual-studio-code --cask
+brew install dropbox --cask
+brew install java --cask
+brew install wireshark --cask
+brew install anki --cask
+brew install alacritty --cask
+brew install slack --cask
 
 # Counts number of lines of code
 brew install cloc
@@ -69,4 +71,4 @@ brew install git-sim
 # dash app,
 
 # Projects I keep grokking
-git clone https://github.com/neovim/neovim.git
+git clone https://github.com/neovim/neovim.git ~/
