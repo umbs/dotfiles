@@ -8,8 +8,32 @@
 # s = size in Kb instead of blocks
 # alias ll="ls -ltrhGp"
 alias ll="ls -lhGp -color"
-alias ls='ls -hFG -color'
+# alias ls='ls -hFG -color'
 alias p='pwd'
+alias hn='hostname'
+alias vi='vim'
+alias grep='grep --color --exclude={.nfs*,tags,cscope*}'
+
+
+# Directory shortcuts
+alias chlorine='ssh bupadhyayula@chlorine -Y'
+alias pan='cd /Volumes/bupadhyayula/pan/'
+alias lam='cd /Volumes/bupadhyayula/pan/saas/main/src/apps/lambda'
+alias orc='cd /Volumes/bupadhyayula/pan/saas/main/src/apps/orchestrator'
+alias plug='cd /Volumes/bupadhyayula/pan/plugins/security-aas/main/'
+alias clientlib='cd /Volumes/bupadhyayula/pan/saas/main/src/apps/clientlib/gpcs4'
+
+alias pan2='ssh root@10.3.223.226'
+alias pan3='ssh root@10.3.220.15'
+alias test-jump='ssh test@10.3.250.150'
+
+alias fwaas='cd /Users/bupadhyayula/fwaas/; source .venv/bin/activate'
+
+alias vmseries-credentials='cd ~/gimme-aws-creds/;\
+                            source .venv/bin/activate;\
+                            gimme-aws-creds --profile bupadhyayula_sso-admin_vmseries-dev;\
+                            cd ~/fwaas/;\
+                            source .venv/bin/activate;'
 
 # Following works when GNU tools is installed on Mac OSX. The whitespace, \t, \+
 # and all are understood by GNU regex parser (I think)
@@ -21,15 +45,14 @@ alias trail_ws="sed -i '' 's/[[:space:]]\{1,\}$//g'"
 
 alias git_clean_ws="git status --short | awk '{print $2}' | xargs sed --in-place 's/[[:space:]]\+$//'"
 
-# http://vim.wikia.com/wiki/Converting_tabs_to_spaces
-# https://howchoo.com/g/m2u0nthkyti/vim-convert-tabs-to-spaces
-# tabstop = How many columns a tab counts for
-# shiftwidth = How many columns text is indented with, when using reindent operation
-# expandtab = Use space instead of tab
-set tabstop=4 shiftwidth=4 expandtab
+alias gsl='git shortlog -s -n --all --no-merges'
 
-# in a file that already has tabs, first set above properties and then do
-# :retab
+alias aws-cred='VIRTUAL_ENV="/home/bupadhyayula/gimme-aws-creds/.venv" /home/bupadhyayula/gimme-aws-creds/.venv/bin/python /home/bupadhyayula/gimme-aws-creds/.venv/bin/gimme-aws-creds --profile bupadhyayula_AWS-Universal-IDP'
+
+alias lg='lazygit'
+
+# Following is required for vim-airline plugin to work inside Tmux
+# export TERM=screen-256color
 
 # Colorize man pages
 # http://boredzo.org/blog/archives/2016-08-15/colorized-man-pages-understood-and-customized
@@ -72,3 +95,20 @@ elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
 fi
 
 unset env
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/bupadhyayula/google-cloud-sdk/path.bash.inc' ]; then . '/Users/bupadhyayula/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/bupadhyayula/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/bupadhyayula/google-cloud-sdk/completion.bash.inc'; fi
+source "$HOME/.cargo/env"
+
+# Git autocomplete
+if [ -f ~/.git-completion ]; then
+        . ~/.git-completion
+fi
+
