@@ -22,13 +22,13 @@ brew install ripgrep
 brew install --HEAD vim     # install developer version
 brew install --HEAD neovim  # install developer version
 brew install node   # installs NodeJS and npm
+brew install cloc   # Counts number of lines of code
+brew install nmap   # networking tools
+brew install vlc
 
 # Azure Cloud NGFW related installs
 brew install jq
 brew install azure-cli
-
-# networking tools
-brew install nmap
 
 # Python comes pre-installed with Mac OS. Install pip, flake8 ...
 sudo easy_install pip
@@ -51,9 +51,6 @@ brew install slack --cask
 brew install postman --cask
 brew install zoom --cask
 # ... End
-
-# Counts number of lines of code
-brew install cloc
 
 # TODO: Softwares that do not have brew installations
 # alacritty, Microsoft Teams, Zoom
