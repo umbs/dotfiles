@@ -26,6 +26,7 @@ brew install nmap
 # Personal Projects from Github:
 git clone https://github.com/umbs/dotfiles.git
 git clone https://github.com/umbs/Notes.git
+git clone https://github.com/umbs/practice.git
 
 cp dotfiles/vimrc ~/.vimrc
 cp dotfiles/gitconfig ~/.gitconfig
