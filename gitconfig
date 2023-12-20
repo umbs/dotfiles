@@ -1,36 +1,39 @@
 [user]
-        name = Bhaskar S Upadhyayula
+	name = Bhaskar S Upadhyayula
+	email = user@user
 
 [core]
 	preloadindex = true
 	autocrlf = input
-	safecrlf = warn 
+	safecrlf = warn
 	eol = lf
-	
+
 	editor = vim
-	browswer = google-chrome 
+	browswer = google-chrome
 	whitespace = nowarn
-[color] 
+[color]
 	ui = auto
 
-[color "branch"] 
-	current = red bold 
-	local = green bold 
-	remote = cyan bold 
+[color "branch"]
+	current = red bold
+	local = green bold
+	remote = cyan bold
 
-[alias] 
+[alias]
         br = branch -vv     ; verbose
         co = checkout
-        st = status -uno    ; -uno=don't show untracked files, -u=show them
+        st = status         ; -uno=don't show untracked files, -u=show them
                             ; showing untracked files is a very slow process.
         ds = describe
-        
+
         lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
         lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
-        lg = !"git lg1"
-#        l  = log --oneline --decorate 
-#        lg = log --oneline --decorate --graph  
-#        lf = log --oneline --decorate --follow -- 
+
+        lg = log --no-merges --date=format:'%Y-%m-%d' --format=format:'%C(bold blue)%h%C(reset) %C(green)%cd%C(reset) %C(cyan)%an%C(reset) %s'
+
+#        l  = log --oneline --decorate
+#        lg = log --oneline --decorate --graph
+#        lf = log --oneline --decorate --follow --
 
         pr = pull --rebase --autostash  ; stash local modifications and apply after rebase
         df = diff
@@ -40,7 +43,11 @@
         sh = show HEAD
         shf = show HEAD --name-only --pretty=\"\"   ; don't show commit message. Just files.
         rso = remote show origin
-        alias = config --get-regex alias 
+        alias = config --get-regex alias
+        gsl='shortlog -s -n --all --no-merges'
+        mylog = log --author=Bhaskar --no-merges
 
 [diff]
 	algorithm = patience
+[pull]
+	rebase = false
