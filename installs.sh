@@ -22,6 +22,7 @@ brew install ripgrep
 brew install --HEAD vim     # install developer version
 brew install --HEAD neovim  # install developer version
 brew install node   # installs NodeJS and npm
+brew install ffmpeg
 
 # Azure Cloud NGFW related installs
 brew install jq
