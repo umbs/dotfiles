@@ -31,9 +31,10 @@ brew install azure-cli
 brew install nmap
 
 # Personal Projects from Github:
-git clone https://github.com/umbs/dotfiles.git ~/
-git clone https://github.com/umbs/Notes.git ~/
-git clone https://github.com/umbs/practice.git ~/
+git clone https://github.com/umbs/dotfiles.git ~/dotfiles
+git clone https://github.com/umbs/Notes.git ~/Notes
+git clone https://github.com/umbs/practice.git ~/practice
+git clone https://github.com/umbs/vim-configs.git ~/vim-configs
 
 cp dotfiles/vimrc ~/.vimrc
 cp dotfiles/gitconfig ~/.gitconfig
