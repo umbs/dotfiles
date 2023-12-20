@@ -30,6 +30,7 @@ brew uninstall vim
 brew uninstall visual-studio-code
 brew uninstall vlc
 brew uninstall wireshark
+brew uninstall yt-dlp
 brew uninstall zoom
 
 rm -fr ~/neovim ~/Notes ~/dotfiles ~/practice ~/vim-configs 

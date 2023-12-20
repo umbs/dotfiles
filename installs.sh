@@ -34,6 +34,7 @@ brew install ripgrep
 brew install shellcheck
 brew install tmux
 brew install vlc
+brew install yt-dlp
 
 # Azure Cloud NGFW related installs
 brew install jq
