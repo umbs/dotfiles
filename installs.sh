@@ -21,6 +21,7 @@ brew install cscope
 brew install ripgrep
 brew install --HEAD vim     # install developer version
 brew install --HEAD neovim  # install developer version
+brew install node   # installs NodeJS and npm
 
 # Azure Cloud NGFW related installs
 brew install jq
@@ -62,3 +63,6 @@ brew cask install anki
 # TODO: Softwares that do not have brew installations
 # alacritty, Microsoft Teams, Zoom
 # dash app,
+
+# Projects I keep grokking
+git clone https://github.com/neovim/neovim.git
