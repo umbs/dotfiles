@@ -20,3 +20,9 @@ tmux new-window -t local:4 -n 'practice'
 tmux new-window -t local:5 -n 'misc'
 
 tmux attach -t local
+
+
+tmux new-session -d -s local -n 'Code'
+tmux send-keys "cd fwaas" C-m
+tmux send-keys "nvim" C-m
+
