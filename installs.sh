@@ -27,6 +27,7 @@ brew install ctags
 brew install docker --cask
 brew install git
 brew install kindle
+brew install meld   # git difftool -t meld
 brew install monodraw --cask
 brew install nmap   # networking tools
 brew install node   # installs NodeJS and npm
