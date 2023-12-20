@@ -60,6 +60,9 @@ brew cask install java
 brew cask install wireshark
 brew cask install anki
 
+# Counts number of lines of code
+brew install cloc 
+
 # TODO: Softwares that do not have brew installations
 # alacritty, Microsoft Teams, Zoom
 # dash app,
