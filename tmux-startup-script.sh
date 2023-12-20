@@ -21,5 +21,8 @@ tmux send-keys "cd $HOME/practice" C-m
 
 tmux new-window -t local:5 -n 'misc'
 
+tmux new-window -t local:5 -n 'code'
+tmux new-window -t local:5 -n 'build'
+
 tmux attach -t local
 
