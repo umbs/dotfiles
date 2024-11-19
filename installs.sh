@@ -23,31 +23,31 @@ brew install --HEAD vim     # install developer version
 brew install bbedit --cask
 brew install cloc   # Counts number of lines of code
 brew install cscope
-brew install ctags
 brew install docker --cask
 brew install git
-brew install kindle
-brew install meld   # git difftool -t meld
+brew install hyperfine  # CLI based benchmarking tool. Better than `time`.
+brew install meld       # git difftool -t meld
 brew install monodraw --cask
-brew install nmap   # networking tools
-brew install node   # installs NodeJS and npm
+brew install nmap       # networking tools
+brew install node       # installs NodeJS and npm
+brew install rectangle  # windows manager
 brew install ripgrep
 brew install shellcheck
-brew install stow   # GNU stow for config file management
 brew install tmux
+brew install universal-ctags    # this is maintained version over exubertant-ctags
 brew install vlc
 brew install yt-dlp
 
 # Azure Cloud NGFW related installs
 brew install jq
-brew install azure-cli
+# brew install azure-cli
 
 # Python comes pre-installed with Mac OS. Install pip, flake8 ...
 brew install flake8
 
 # Applications
-# plugins for browser: ublock, adblock, bitwarden, lastpass, pocket,
-# raindrop.io stayfocused, printfriendly, tomatotimer, coders calendar
+# plugins for browser: ublock, adblock, bitwarden, pocket,
+# raindrop.io stayfocused, printfriendly, tomatotimer
 
 brew install alacritty --cask
 brew install anki --cask
@@ -55,6 +55,7 @@ brew install dropbox --cask	# Requires entering password
 brew install google-chrome --cask
 brew install openjdk --cask
 brew install visual-studio-code --cask
+brew install wezterm --cask
 brew install wireshark --cask
 
 # Apps used at work
@@ -64,8 +65,7 @@ brew install zoom --cask	# Requires entering password
 # ... End
 
 # TODO: Softwares that do not have brew installations
-# alacritty, Microsoft Teams
-# Dash app,
+# Dash app, Instapaper
 
 # Projects I keep grokking
 git clone https://github.com/neovim/neovim.git ~/neovim
