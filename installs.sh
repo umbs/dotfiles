@@ -20,19 +20,29 @@ echo "eval $(/opt/homebrew/bin/brew shellenv)" >> ~/.zshrc
 
 brew install --HEAD neovim  # install developer version
 brew install --HEAD vim     # install developer version
+brew install bat        # alternative to 'cat'
 brew install bbedit --cask
-brew install cloc   # Counts number of lines of code
+brew install cloc
 brew install cscope
 brew install docker --cask
+brew install duf        # replacement for 'df'
+brew install dust       # like 'du' but much better. Written in Rust.
+brew install eza        # modern replacement of 'ls'
+brew install fd         # much faster alternative to 'find'
 brew install git
+brew install httrack    # HTTrack for downloading HTML pages
 brew install hyperfine  # CLI based benchmarking tool. Better than `time`.
 brew install meld       # git difftool -t meld
 brew install monodraw --cask
 brew install nmap       # networking tools
 brew install node       # installs NodeJS and npm
+brew install python
+brew install pyenv
 brew install rectangle  # windows manager
 brew install ripgrep
 brew install shellcheck
+brew install scc        # replacement for 'cloc' for counting lines of code
+brew install tlrc       # tldr for manpages
 brew install tmux
 brew install universal-ctags    # this is maintained version over exubertant-ctags
 brew install vlc
@@ -65,10 +75,11 @@ brew install zoom --cask	# Requires entering password
 # ... End
 
 # TODO: Softwares that do not have brew installations
-# Dash app, Instapaper
+# Dash app, Instapaper, uv, ruff,
 
 # Projects I keep grokking
 git clone https://github.com/neovim/neovim.git ~/neovim
+git clone https://github.com/vim/vim.git ~/vim
 
 # Personal Projects from Github:
 git clone https://github.com/umbs/dotfiles.git ~/dotfiles
@@ -82,4 +93,4 @@ cp dotfiles/bashrc ~/.bashrc
 
 # Vim plugin manager (Vundle) installation. This package manager is needed to
 # install rest of the plugins
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+# git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
